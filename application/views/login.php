@@ -55,15 +55,17 @@
           <!-- Register Form-->
           <div class="register-form mt-4 px-4">
             <h6 class="mb-3 text-center" style="color: #000000;">Log in to continue Admin Sucofindo</h6>
-            <form action="<?= base_url() ?>home">
+
+            <form id="login-form">
               <div class="form-group">
-                <input class="form-control" type="text" placeholder="Email" style="color: #000000;">
+                <input class="form-control" type="email" placeholder="Email" name="email" id="email" style="color: #000000;">
               </div>
               <div class="form-group">
-                <input class="form-control" type="password" placeholder="Password" style="color: #000000;">
+                <input class="form-control" type="password" placeholder="Password" name="password" id="password" style="color: #000000;">
               </div>
               <button class="btn btn-primary w-100" type="submit" style="background-color: #0036D3;border:none">Sign In</button>
             </form>
+
           </div>
           <!-- Login Meta-->
           <div class="login-meta-data text-center"><a class="stretched-link forgot-password d-block mt-3 mb-1" href="<?= base_url() ?>forgetpassword" style="color: black">Forgot Password?</a>
@@ -90,8 +92,101 @@
   <script src="<?= base_url() ?>assets/js/jquery.dataTables.min.js"></script>
   <script src="<?= base_url() ?>assets/js/default/active.js"></script>
   <script src="<?= base_url() ?>assets/js/default/clipboard.js"></script>
+
+  <!-- jquery validate -->
+  <script src="<?= base_url() ?>assets/js/jquery.validate.min.js"></script>
   <!-- PWA-->
   <script src="<?= base_url() ?>assets/js/pwa.js"></script>
+
+  <!-- Lightweight Notification Popup JavaScript Library – X-Notify -->
+  <script src="<?= base_url() ?>assets/js/plugins/x-notify-main/x-notify.min.js"></script>
+
+  <!-- harus di buat file -->
+  <script>
+    $(document).ready(function() {
+      // Initialize the X-Notify library.
+
+      const Notify = new XNotify();
+
+      // Validation
+      $("#login-form").validate({
+        // Rules for form validation
+        rules: {
+          email: {
+            required: true,
+            email: true
+          },
+          password: {
+            required: true,
+            minlength: 3,
+            maxlength: 20
+          }
+        },
+
+        // Messages for form validation
+        messages: {
+          email: {
+            required: 'Please enter your email address',
+            email: 'Please enter a VALID email address'
+          },
+          password: {
+            required: 'Please enter your password'
+          }
+        },
+
+        // Do not change code below
+        errorPlacement: function(error, element) {
+          error.insertAfter(element.parent());
+        },
+
+        // if succes
+        submitHandler: function(form) {
+          $.ajax({
+            method: 'post',
+            url: '<?= base_url() ?>login/doLogin',
+            data: {
+              email: form.email.value,
+              password: form.password.value
+            },
+            success: function(response) {
+              if (response == 1) {
+                Notify.error({
+                  title: "Failed",
+                  description: 'Sorry your password is wrong'
+                });
+
+                $('#password').val('')
+
+                $('#password').focus()
+              } else if (response == 2) {
+                Notify.error({
+                  title: "Failed",
+                  description: 'your account was not found'
+                });
+
+                $('#email').val('')
+                $('#password').val('')
+
+                $('#email').focus()
+              } else {
+                Notify.success({
+                  title: "Success",
+                  description: "Login success"
+                });
+
+                setInterval(() => {
+                  window.location.href = '<?= base_url() ?>home'
+                }, 1000)
+              }
+            },
+            error: function(jqXHR, textStatus, errorThrown) {
+              alert(textStatus, errorThrown);
+            }
+          })
+        }
+      });
+    });
+  </script>
 </body>
 
 </html>

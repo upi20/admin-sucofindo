@@ -1,15 +1,16 @@
 <?php
-defined('BASEPATH') OR exit('No direct script access allowed');
+defined('BASEPATH') or exit('No direct script access allowed');
 
-class Paging {
+class Paging
+{
 
 	/**
-	*
-	*
-	* GLOBAL VARIABLE 
-	*
-	*
-	**/
+	 *
+	 *
+	 * GLOBAL VARIABLE
+	 *
+	 *
+	 **/
 
 	public $base_url 			= '/';
 	public $total_rows 			= 2;
@@ -18,22 +19,22 @@ class Paging {
 	public $num_links 			= 3;
 
 	/**
-	*
-	*
-	*
-	*
-	*
-	**/
+	 *
+	 *
+	 *
+	 *
+	 *
+	 **/
 
 	public function create_links($config = array())
 	{
 		/**
-		*
-		*
-		* SET VALUE GLOBAL VARIABLE
-		*
-		*
-		**/
+		 *
+		 *
+		 * SET VALUE GLOBAL VARIABLE
+		 *
+		 *
+		 **/
 
 
 		$this->base_url 		= isset($config['base_url']) ? $config['base_url'] : $this->base_url;
@@ -42,18 +43,18 @@ class Paging {
 		$this->uri_segment 		= isset($config['uri_segment']) ? $config['uri_segment'] : $this->uri_segment;
 		$this->num_links 		= isset($config['num_links']) ? $config['num_links'] : $this->num_links;
 
-	
+
 		/**
-		*
-		*
-		*
-		*
-		*
-		**/
+		 *
+		 *
+		 *
+		 *
+		 *
+		 **/
 
 		$this->ci = &get_instance();
 
-		
+
 		$this->ci->load->library('pagination');
 
 
@@ -62,7 +63,7 @@ class Paging {
 		$config['per_page'] 		= $this->per_page;
 		$config['uri_segment'] 		= $this->uri_segment;
 		// $config['num_links'] 		= $this->num_links;
-		
+
 		$config['full_tag_open'] 	= '<div><ul class="pagination">';
 		$config['full_tag_close'] 	= '</ul></div><!--pagination-->';
 		$config['first_link'] 		= '&laquo; First';
@@ -82,19 +83,18 @@ class Paging {
 		$config['num_tag_open'] 	= '<li class="page">';
 		$config['num_tag_close'] 	= '</li>';
 		$config['anchor_class'] 	= 'follow_link';
-	
 
-		$this->ci->pagination->initialize($config);		
+
+		$this->ci->pagination->initialize($config);
 
 
 		/**
-		*
-		*
-		* EXECUTE
-		*
-		*
-		**/
+		 *
+		 *
+		 * EXECUTE
+		 *
+		 *
+		 **/
 		return $this->ci->pagination->create_links();
 	}
-
 }
