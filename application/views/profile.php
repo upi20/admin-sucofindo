@@ -44,16 +44,16 @@
       <!-- User Information-->
       <div class="card user-info-card mb-3">
         <div class="card-body d-flex align-items-center">
-          <div class="user-profile me-3"><img src="<?= base_url() ?>assets/img/bg-img/img_profile.png" alt="">
+          <div class="user-profile me-3"><img id="previewImg" src="<?= base_url() ?>assets/img/bg-img/img_profile.png" alt="">
             <form action="#">
-              <input class="form-control" type="file">
+              <input class="form-control" type="file" onchange="previewFile(this);">
             </form>
           </div>
           <div class="user-info">
             <div class="d-flex align-items-center">
-              <h5 class="mb-1" style="color: #000000">Toto Iswanto</h5>
+              <h5 class="mb-1" style="color: #000000"><?php echo $user['user_nama']; ?></h5>
             </div>
-            <p class="mb-0" style="color: #a3a3a3">Admin Sucofindo</p>
+            <p class="mb-0" style="color: #a3a3a3"><?php echo $user['jabatan_nama']; ?></p>
           </div>
         </div>
       </div>
@@ -62,32 +62,43 @@
         <div class="card-body">
           <form action="#">
             <div class="form-group mb-3">
-              <label class="form-label" for="nama" style="color: #a3a3a3">Nama</label>
-              <input class="form-control" id="nama" type="text" value="Toto Iswanto" style="color: #000000" placeholder="Nama">
+              <label class="form-label" for="user_nama" style="color: #a3a3a3">Nama</label>
+              <input class="form-control" id="user_nama" type="text" value="<?php echo $user['user_nama']; ?>" style="color: #000000" placeholder="Nama">
             </div>
             <div class="form-group mb-3">
-              <label class="form-label" for="tanggal lahir" style="color: #a3a3a3">Tanggal Lahir</label>
-              <input class="form-control" id="ttl" type="text" value="01 April 1992" style="color: #000000" placeholder="Tanggal Lahir">
+              <label class="form-label" for="user_tanggal_lahir" style="color: #a3a3a3">Tanggal Lahir</label>
+              <input class="form-control" id="user_tanggal_lahir" type="date" value="<?php echo $user['user_tanggal_lahir']; ?>" style="color: #000000" placeholder="Tanggal Lahir">
             </div>
             <div class="form-group mb-3">
-              <label class="form-label" for="alamat" style="color: #a3a3a3">Alamat</label>
-              <input class="form-control" id="alamat" type="text" value="Jl. Soekarno Hatta" style="color: #000000" placeholder="Alamat">
+              <label class="form-label" for="user_alamat" style="color: #a3a3a3">Alamat</label>
+              <input class="form-control" id="user_alamat" type="text" value="<?php echo $user['user_alamat']; ?>" style="color: #000000" placeholder="Alamat">
             </div>
             <div class="form-group mb-3">
-              <label class="form-label" for="nomor telpon" style="color: #a3a3a3">Nomor Telpon</label>
-              <input class="form-control" id="nomot telpon" type="text" value="081234567890" style="color: #000000" placeholder="No Telpon">
+              <label class="form-label" for="user_phone" style="color: #a3a3a3">Nomor Telpon</label>
+              <input class="form-control" id="user_phone" type="text" value="<?php echo $user['user_phone']; ?>" style="color: #000000" placeholder="No Telpon">
             </div>
             <div class="form-group mb-3">
-              <label class="form-label" for="asal perusahaan" style="color: #a3a3a3">Asal Perusahaan</label>
-              <input class="form-control" id="asal perusahaan" type="text" value="PT. Sucofindo" style="color: #000000" placeholder="Asal Perusahaan">
+              <label class="form-label" for="id_perusahaan" style="color: #a3a3a3">Asal Perusahaan</label>
+              <select id="id_perusahaan" class="form-select" aria-label="Default select example" data-default="<?= $user['id_perusahaan'] ?>">
+                <?php
+                foreach ($perusahaans as $p) {
+                  if ($user['id_perusahaan'] == $p['id']) {
+                    echo '<option value="' . $p['id'] . '" selected>' . $p['nama'] . '</option>';
+                  } else {
+                    echo '<option value="' . $p['id'] . '">' . $p['nama'] . '</option>';
+                  }
+                } ?>
+              </select>
             </div>
             <div class="form-group mb-3">
-              <label class="form-label" for="bekerja tahun" style="color: #a3a3a3">Bekerja Tahun</label>
-              <input class="form-control" id="bekerja tahun" type="text" value="2019" style="color: #000000" placeholder="Bekerja Tahun">
+              <label class="form-label" for="mulai_bekerja" style="color: #a3a3a3">Bekerja Tahun</label>
+              <input class="form-control" id="mulai_bekerja" type="text" value="<?php echo $user['user_alamat']; ?>" style="color: #000000" placeholder="Bekerja Tahun">
             </div>
             <div class="form-group mb-3">
-              <label class="form-label" for="jabatan" style="color: #a3a3a3">Jabatan</label>
-              <input class="form-control" id="jabatan" type="text" value="Admin Sucofindo" style="color: #000000" placeholder="Jabatan">
+              <label class="form-label" for="id_jabatan" style="color: #a3a3a3">Jabatan</label>
+              <select id="id_jabatan" class="form-select" aria-label="Default select example" data-default="<?= $user['id_jabatan'] ?>">
+
+              </select>
             </div>
             <button class="btn btn-success w-100" type="submit" style="background-color: #0036D3;color: white;border:none">Update Now</button>
           </form>
@@ -118,6 +129,60 @@
   <script src="<?= base_url() ?>assets/js/default/clipboard.js"></script>
   <!-- PWA-->
   <script src="<?= base_url() ?>assets/js/pwa.js"></script>
+  <script>
+    function previewFile(input) {
+      var file = $("input[type=file]").get(0).files[0];
+
+      if (file) {
+        var reader = new FileReader();
+
+        reader.onload = function() {
+          $("#previewImg").attr("src", reader.result);
+        }
+
+        reader.readAsDataURL(file);
+      }
+    }
+
+    $(document).ready(function() {
+      const refreshJabatan = () => {
+        const id_jabatan_default = $('#id_jabatan').data('default');
+        const id_perusahaan_default = $('#id_perusahaan').data('default');
+
+        const id_perusahaan = $('#id_perusahaan');
+        const id_jabatan = $('#id_jabatan');
+
+        $.ajax({
+          url: "<?= base_url() ?>profile/getjabatan",
+          type: "post",
+          data: {
+            id_perusahaan: id_perusahaan.val()
+          },
+          success: function(response) {
+            if (response.length) {
+              let html = ``;
+              response.forEach(e => {
+                let selected = (e.id == id_jabatan_default && id_perusahaan.val() == id_perusahaan_default) ? "selected" : "";
+                html += `<option value="${e.id}" ${selected}>${e.nama}</option>`;
+              });
+              id_jabatan.html(html);
+            } else {
+              id_jabatan.html("");
+            }
+          },
+          error: function(jqXHR, textStatus, errorThrown) {
+            console.log(textStatus, errorThrown);
+          }
+        });
+      }
+      refreshJabatan();
+
+      $('#id_perusahaan').on('change', () => {
+        refreshJabatan();
+      });
+
+    });
+  </script>
 </body>
 
 </html>
