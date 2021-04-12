@@ -46,6 +46,24 @@
   <!-- Internet Connection Status-->
   <div class="internet-connection-status" id="internetStatus"></div>
   <!-- Back Button-->
+
+  <!-- Welcome Toast-->
+  <div class="toast toast-autohide custom-toast-1 toast-danger home-page-toast" role="alert" aria-live="assertive" aria-atomic="true" data-bs-delay="10000" data-bs-autohide="true" style="display: none;">
+    <div class="toast-body">
+      <svg class="bi bi-bookmark-check text-white" width="30" height="30" viewBox="0 0 16 16" fill="currentColor" xmlns="../../www.w3.org/2000/svg.html" id="toast-icon">
+        <path fill-rule="evenodd" d="M2 2a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v13.5a.5.5 0 0 1-.777.416L8 13.101l-5.223 2.815A.5.5 0 0 1 2 15.5V2zm2-1a1 1 0 0 0-1 1v12.566l4.723-2.482a.5.5 0 0 1 .554 0L13 14.566V2a1 1 0 0 0-1-1H4z">
+        </path>
+        <path fill-rule="evenodd" d="M10.854 5.146a.5.5 0 0 1 0 .708l-3 3a.5.5 0 0 1-.708 0l-1.5-1.5a.5.5 0 1 1 .708-.708L7.5 7.793l2.646-2.647a.5.5 0 0 1 .708 0z">
+        </path>
+      </svg>
+      <div class="toast-text ms-3 me-2">
+        <p class="mb-1 text-white" id="toast-title"></p>
+        <small class="d-block" id="toast-fill"></small>
+      </div>
+      <button class="btn btn-close btn-close-white position-relative p-1 ms-auto" type="button" data-bs-dismiss="toast" aria-label="Close"></button>
+    </div>
+  </div>
+
   <!-- Login Wrapper Area-->
   <div class="login-wrapper d-flex align-items-center justify-content-center">
     <div class="container">
@@ -98,15 +116,51 @@
   <!-- PWA-->
   <script src="<?= base_url() ?>assets/js/pwa.js"></script>
 
-  <!-- Lightweight Notification Popup JavaScript Library – X-Notify -->
-  <script src="<?= base_url() ?>assets/js/plugins/x-notify-main/x-notify.min.js"></script>
-
   <!-- harus di buat file -->
   <script>
     $(document).ready(function() {
-      // Initialize the X-Notify library.
+      // inisialisasi toast bootstrap 5.
+      function setToast(icon = 'info', color = '', title = '', fill = '') {
 
-      const Notify = new XNotify();
+        // icon
+        const toastIcon = {
+          success: `
+          path fill-rule="evenodd" d="M8 15A7 7 0 1 0 8 1a7 7 0 0 0 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z" />
+          <path fill-rule="evenodd" d="M10.97 4.97a.75.75 0 0 1 1.071 1.05l-3.992 4.99a.75.75 0 0 1-1.08.02L4.324 8.384a.75.75 0 1 1 1.06-1.06l2.094 2.093 3.473-4.425a.236.236 0 0 1 .02-.022z" />
+          `,
+          danger: `
+          <path fill-rule="evenodd" d="M8 15A7 7 0 1 0 8 1a7 7 0 0 0 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z" />
+          <path fill-rule="evenodd" d="M10.97 4.97a.75.75 0 0 1 1.071 1.05l-3.992 4.99a.75.75 0 0 1-1.08.02L4.324 8.384a.75.75 0 1 1 1.06-1.06l2.094 2.093 3.473-4.425a.236.236 0 0 1 .02-.022z" />
+          `,
+          info: `
+          <path fill-rule="evenodd" d="M8 15A7 7 0 1 0 8 1a7 7 0 0 0 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z" />
+          <path fill-rule="evenodd" d="M10.97 4.97a.75.75 0 0 1 1.071 1.05l-3.992 4.99a.75.75 0 0 1-1.08.02L4.324 8.384a.75.75 0 1 1 1.06-1.06l2.094 2.093 3.473-4.425a.236.236 0 0 1 .02-.022z" />
+          `
+        }
+
+        // variable
+        let el = $('.toast')[0];
+        const toast = new bootstrap.Toast(el);
+        el = $(el);
+
+        // set toast color
+        el.attr('class', 'toast toast-autohide custom-toast-1 home-page-toast toast-' + color);
+
+        // set toast icon
+        $("#toast-icon").html(toastIcon[icon]);
+
+        // set toast title
+        $("#toast-title").html(title);
+
+        // set toast fill
+        $("#toast-fill").html(fill);
+
+        // show visibility toast
+        el.removeAttr('style');
+
+        // eksekusi
+        toast.show();
+      }
 
       // Validation
       $("#login-form").validate({
@@ -149,30 +203,21 @@
               password: form.password.value
             },
             success: function(response) {
+              let view_alert = $("#view-alert");
               if (response == 1) {
-                Notify.error({
-                  title: "Failed",
-                  description: 'Sorry your password is wrong'
-                });
+                setToast('danger', 'danger', 'Failed', 'Sorry your password is wrong');
 
                 $('#password').val('')
 
                 $('#password').focus()
               } else if (response == 2) {
-                Notify.error({
-                  title: "Failed",
-                  description: 'your account was not found'
-                });
-
+                setToast('danger', 'danger', 'Failed', 'Your account was not found');
                 $('#email').val('')
                 $('#password').val('')
 
                 $('#email').focus()
               } else {
-                Notify.success({
-                  title: "Success",
-                  description: "Login success"
-                });
+                setToast('success', 'primary', 'Success', 'Login success');
 
                 setInterval(() => {
                   window.location.href = '<?= base_url() ?>home'
