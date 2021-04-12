@@ -44,4 +44,11 @@ class Login extends Render_Controller
 		}
 		$this->output_json($login['status']);
 	}
+
+	public function logout()
+	{
+		$session = array('status', 'data');
+		$this->session->unset_userdata($session);
+		redirect('login', 'refresh');
+	}
 }
