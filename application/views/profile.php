@@ -44,9 +44,9 @@
       <!-- User Information-->
       <div class="card user-info-card mb-3">
         <div class="card-body d-flex align-items-center">
-          <div class="user-profile me-3"><img id="previewImg" src="<?= base_url() ?>assets/img/bg-img/img_profile.png" alt="">
-            <form action="#">
-              <input class="form-control" type="file" onchange="previewFile(this);">
+          <div class="user-profile me-3"><img id="previewImg" src="<?= base_url() ?>assets/img/users-profile/<?= $user['user_photo'] ?>" alt="">
+            <form id="user-data-file">
+              <input class="form-control" id="img-input" type="file" onchange="previewFile(this);">
             </form>
           </div>
           <div class="user-info">
@@ -60,7 +60,7 @@
       <!-- User Meta Data-->
       <div class="card user-data-card">
         <div class="card-body">
-          <form action="#">
+          <form id="user-data">
             <div class="form-group mb-3">
               <label class="form-label" for="user_nama" style="color: #a3a3a3">Nama</label>
               <input class="form-control" id="user_nama" type="text" value="<?php echo $user['user_nama']; ?>" style="color: #000000" placeholder="Nama" required>
@@ -131,8 +131,7 @@
   <script src="<?= base_url() ?>assets/js/pwa.js"></script>
   <script>
     function previewFile(input) {
-      var file = $("input[type=file]").get(0).files[0];
-
+      var file = $("#img-input").get(0).files[0];
       if (file) {
         var reader = new FileReader();
 
@@ -145,6 +144,7 @@
     }
 
     $(document).ready(function() {
+      // Fungsi untuk jabatan mengambil dari database
       const refreshJabatan = () => {
         const id_jabatan_default = $('#id_jabatan').data('default');
         const id_perusahaan_default = $('#id_perusahaan').data('default');
@@ -177,8 +177,35 @@
       }
       refreshJabatan();
 
+      // refresh jabatan ketika perusahaan dipilih
       $('#id_perusahaan').on('change', () => {
         refreshJabatan();
+      });
+
+      // Fungsi form submti ditekan
+      $('#user-data').submit(function(e) {
+        e.preventDefault();
+        var file_data = $('#img-input').prop('files')[0];
+        var form_data = new FormData();
+        form_data.append('file', file_data);
+        $.ajax({
+          url: '<?php echo site_url("profile/imgUpload") ?>', // point to server-side PHP script
+          dataType: 'json', // what to expect back from the PHP script, if anything
+          cache: false,
+          contentType: false,
+          processData: false,
+          data: form_data,
+          type: 'post',
+          success: function(data, status) {
+            //alert(php_script_response); // display response from the PHP script, if any
+            if (data.status != 'error') {
+              $('#gambar').val('');
+              alert(data.msg);
+            } else {
+              alert(data.msg);
+            }
+          }
+        });
       });
 
     });
