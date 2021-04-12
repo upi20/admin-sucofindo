@@ -63,23 +63,23 @@
           <form action="#">
             <div class="form-group mb-3">
               <label class="form-label" for="user_nama" style="color: #a3a3a3">Nama</label>
-              <input class="form-control" id="user_nama" type="text" value="<?php echo $user['user_nama']; ?>" style="color: #000000" placeholder="Nama">
+              <input class="form-control" id="user_nama" type="text" value="<?php echo $user['user_nama']; ?>" style="color: #000000" placeholder="Nama" required>
             </div>
             <div class="form-group mb-3">
               <label class="form-label" for="user_tanggal_lahir" style="color: #a3a3a3">Tanggal Lahir</label>
-              <input class="form-control" id="user_tanggal_lahir" type="date" value="<?php echo $user['user_tanggal_lahir']; ?>" style="color: #000000" placeholder="Tanggal Lahir">
+              <input class="form-control" id="user_tanggal_lahir" type="date" value="<?php echo $user['user_tanggal_lahir']; ?>" style="color: #000000" placeholder="Tanggal Lahir" required>
             </div>
             <div class="form-group mb-3">
               <label class="form-label" for="user_alamat" style="color: #a3a3a3">Alamat</label>
-              <input class="form-control" id="user_alamat" type="text" value="<?php echo $user['user_alamat']; ?>" style="color: #000000" placeholder="Alamat">
+              <input class="form-control" id="user_alamat" type="text" value="<?php echo $user['user_alamat']; ?>" style="color: #000000" placeholder="Alamat" required>
             </div>
             <div class="form-group mb-3">
               <label class="form-label" for="user_phone" style="color: #a3a3a3">Nomor Telpon</label>
-              <input class="form-control" id="user_phone" type="text" value="<?php echo $user['user_phone']; ?>" style="color: #000000" placeholder="No Telpon">
+              <input class="form-control" id="user_phone" type="text" value="<?php echo $user['user_phone']; ?>" style="color: #000000" placeholder="No Telpon" required>
             </div>
             <div class="form-group mb-3">
               <label class="form-label" for="id_perusahaan" style="color: #a3a3a3">Asal Perusahaan</label>
-              <select id="id_perusahaan" class="form-select" aria-label="Default select example" data-default="<?= $user['id_perusahaan'] ?>">
+              <select required id="id_perusahaan" class="form-select" aria-label="Default select example" data-default="<?= $user['id_perusahaan'] ?>">
                 <?php
                 foreach ($perusahaans as $p) {
                   if ($user['id_perusahaan'] == $p['id']) {
@@ -92,11 +92,11 @@
             </div>
             <div class="form-group mb-3">
               <label class="form-label" for="mulai_bekerja" style="color: #a3a3a3">Bekerja Tahun</label>
-              <input class="form-control" id="mulai_bekerja" type="text" value="<?php echo $user['user_alamat']; ?>" style="color: #000000" placeholder="Bekerja Tahun">
+              <input class="form-control" id="mulai_bekerja" type="text" value="<?php echo $user['user_alamat']; ?>" style="color: #000000" placeholder="Bekerja Tahun" required>
             </div>
             <div class="form-group mb-3">
               <label class="form-label" for="id_jabatan" style="color: #a3a3a3">Jabatan</label>
-              <select id="id_jabatan" class="form-select" aria-label="Default select example" data-default="<?= $user['id_jabatan'] ?>">
+              <select id="id_jabatan" class="form-select" aria-label="Default select example" data-default="<?= $user['id_jabatan'] ?>" required>
 
               </select>
             </div>
