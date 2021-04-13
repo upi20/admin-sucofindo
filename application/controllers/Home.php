@@ -8,9 +8,17 @@ class Home extends CI_Controller
 		parent::__construct();
 		// Cek session
 		$this->sesion->cek_session();
+		$this->load->model("HomeModel", 'home');
 	}
 	public function index()
 	{
-		$this->load->view('home');
+		$data['aat'] = $this->home->getAreaTambang();
+		$data['activity'] = $this->home->activityArea();
+		$this->load->view('home', $data);
+	}
+
+	public function tes()
+	{
+		var_dump($this->home->activityArea());
 	}
 }
