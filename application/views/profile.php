@@ -92,7 +92,7 @@
             </div>
             <div class="form-group mb-3">
               <label class="form-label" for="mulai_bekerja" style="color: #a3a3a3">Bekerja Tahun</label>
-              <input class="form-control" id="mulai_bekerja" type="text" value="<?php echo $user['user_alamat']; ?>" style="color: #000000" placeholder="Bekerja Tahun" required>
+              <input class="form-control" id="mulai_bekerja" type="text" value="<?php echo $user['mulai_bekerja']; ?>" style="color: #000000" placeholder="Bekerja Tahun" required>
             </div>
             <div class="form-group mb-3">
               <label class="form-label" for="id_jabatan" style="color: #a3a3a3">Jabatan</label>
@@ -127,6 +127,8 @@
   <script src="<?= base_url() ?>assets/js/jquery.dataTables.min.js"></script>
   <script src="<?= base_url() ?>assets/js/default/active.js"></script>
   <script src="<?= base_url() ?>assets/js/default/clipboard.js"></script>
+  <!-- toast -->
+  <script src="<?= base_url() ?>assets/js/default/toast.js"></script>
   <!-- PWA-->
   <script src="<?= base_url() ?>assets/js/pwa.js"></script>
   <script>
@@ -185,27 +187,54 @@
       // Fungsi form submti ditekan
       $('#user-data').submit(function(e) {
         e.preventDefault();
-        var file_data = $('#img-input').prop('files')[0];
-        var form_data = new FormData();
-        form_data.append('file', file_data);
+        let img_status = null;
+        let img_title = '';
+        let data_status = null;
+        let data_title = '';
+        if ($('#img-input').val()) {
+          var file_data = $('#img-input').prop('files')[0];
+          var form_data = new FormData();
+          form_data.append('file', file_data);
+          $.ajax({
+            url: '<?php echo site_url("profile/imgUpload") ?>', // point to server-side PHP script
+            dataType: 'json', // what to expect back from the PHP script, if anything
+            cache: false,
+            contentType: false,
+            processData: false,
+            data: form_data,
+            type: 'post',
+            success: function(data) {
+              if (data.status != 'error') {
+                setToast('success', 'primary', 'Success', 'Data has been changed');
+              } else {
+                setToast('danger', 'danger', 'Failed', 'Data has failed to change');
+              }
+            }
+          });
+        }
+
         $.ajax({
-          url: '<?php echo site_url("profile/imgUpload") ?>', // point to server-side PHP script
-          dataType: 'json', // what to expect back from the PHP script, if anything
-          cache: false,
-          contentType: false,
-          processData: false,
-          data: form_data,
-          type: 'post',
+          type: "post",
+          url: '<?php echo site_url("profile/update") ?>',
+          data: {
+            id: '<?= $user['id'] ?>',
+            user_nama: $('#user_nama').val(),
+            user_tanggal_lahir: $('#user_tanggal_lahir').val(),
+            user_alamat: $('#user_alamat').val(),
+            user_phone: $('#user_phone').val(),
+            mulai_bekerja: $('#mulai_bekerja').val(),
+            id_jabatan: $('#id_jabatan').val()
+          },
+          dataType: 'json',
           success: function(data) {
-            if (data.status != 'error') {
-              console.log("berhasil di upload");
+            if (data.status) {
+              setToast('success', 'primary', 'Success', 'Data has been changed');
             } else {
-              console.log("gagal di upload");
+              setToast('danger', 'danger', 'Failed', 'Data has failed to change');
             }
           }
         });
       });
-
     });
   </script>
 </body>

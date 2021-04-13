@@ -63,4 +63,9 @@ class Profile extends Render_Controller
 		}
 		$this->output->set_content_type('application/json')->set_output(json_encode(['status' => $status]));
 	}
+
+	public function update()
+	{
+		$this->output_json($this->profile->update($this->input->post()));
+	}
 }

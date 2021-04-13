@@ -27,4 +27,24 @@ class ProfileModel extends Render_Model
         if ($id_perusahaan) $this->db->where(['id_perusahaan' => $id_perusahaan]);
         return $this->db->get()->result_array();
     }
+
+    public function update($data)
+    {
+        try {
+            $id = $data['id'];
+            $data = [
+                'user_nama' => $data['user_nama'],
+                'user_tanggal_lahir' => $data['user_tanggal_lahir'],
+                'user_alamat' => $data['user_alamat'],
+                'user_phone' => $data['user_phone'],
+                'mulai_bekerja' => $data['mulai_bekerja'],
+                'id_jabatan' => $data['id_jabatan']
+            ];
+            $this->db->update('users', $data);
+            $this->db->where('id', $id);
+            return ['status' => true, 'num' => $this->db->affected_rows()];
+        } catch (\Throwable $th) {
+            return ['status' => true, 'num' => ''];
+        }
+    }
 }
