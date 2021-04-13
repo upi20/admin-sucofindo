@@ -79,14 +79,21 @@
             </div>
             <div class="form-group mb-3">
               <label class="form-label" for="id_perusahaan" style="color: #a3a3a3">Asal Perusahaan</label>
-              <select required id="id_perusahaan" class="form-select" aria-label="Default select example" data-default="<?= $user['id_perusahaan'] ?>">
+              <!-- <select required id="id_perusahaan" class="form-select" aria-label="Default select example" data-default="<?= $user['id_perusahaan'] ?>"> -->
+              <select required id="id_perusahaan" class="form-select" aria-label="Default select example" data-default="1">
                 <?php
                 foreach ($perusahaans as $p) {
-                  if ($user['id_perusahaan'] == $p['id']) {
-                    echo '<option value="' . $p['id'] . '" selected>' . $p['nama'] . '</option>';
-                  } else {
+                  // tunggal
+                  if ($p['id'] == 1) {
                     echo '<option value="' . $p['id'] . '">' . $p['nama'] . '</option>';
                   }
+
+                  // multiple
+                  // if ($user['id_perusahaan'] == $p['id']) {
+                  //   echo '<option value="' . $p['id'] . '">' . $p['nama'] . '</option>';
+                  // } else {
+                  //   echo '<option value="' . $p['id'] . '">' . $p['nama'] . '</option>';
+                  // }
                 } ?>
               </select>
             </div>
