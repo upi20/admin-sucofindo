@@ -196,13 +196,11 @@
           processData: false,
           data: form_data,
           type: 'post',
-          success: function(data, status) {
-            //alert(php_script_response); // display response from the PHP script, if any
+          success: function(data) {
             if (data.status != 'error') {
-              $('#gambar').val('');
-              alert(data.msg);
+              console.log("berhasil di upload");
             } else {
-              alert(data.msg);
+              console.log("gagal di upload");
             }
           }
         });
