@@ -37,10 +37,10 @@
   <div class="sidenav-profile" style="background-color: #0036D3">
     <div class="sidenav-style1"></div>
     <!-- User Thumbnail-->
-    <div class="user-profile"><img src="<?= base_url() ?>assets/img/bg-img/img_profile.png" alt=""></div>
+    <div class="user-profile"><img src="<?= base_url() ?>assets/img/users-profile/<?= $_SESSION['data']['user_photo'] ?>" alt=""></div>
     <!-- User Info-->
     <div class="user-info">
-      <h6 class="user-name mb-0">Toto Iswanto</h6><span>Admin Sucofindo</span>
+      <h6 class="user-name mb-0"><?= $_SESSION['data']['jabatan'] ?></h6><span><?= $_SESSION['data']['nama'] ?></span>
     </div>
   </div>
   <!-- Sidenav Nav-->

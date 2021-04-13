@@ -35,6 +35,7 @@ class Login extends Render_Controller
 					'jabatan' => $login['data'][0]['jabatan_nama'],
 					'jabatan_id' => $login['data'][0]['id_jabatan'],
 					'id_perusahaan' => $login['data'][0]['id_perusahaan'],
+					'user_photo' => $login['data'][0]['user_photo'],
 				]
 			];
 			$this->session->set_userdata($session);
