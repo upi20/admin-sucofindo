@@ -49,21 +49,22 @@
                 </ol>
             </nav>
         </div>
-
-
         <div class="container mt-3">
             <h6 class="ps-1">Activity Area Tambang</h6>
             <ul class="ps-0 chat-user-list">
-                <li class="p-3 chat-unread">
-                    <a href="#" class="d-flex w-100" id="activity-area-tambang">
-                        <div class="chat-user-info">
-                            <h6 class="text-truncate mb-0">LMO - WMP LT 3</h6>
-                            <div class="last-chat">
-                                <p class="mb-0 text-truncate">2 Januari 2021 (3 jam)<span class="badge rounded-pill bg-primary ms-2">Proses</span></p>
+                <?php foreach ($activity as $a) : ?>
+                    <li class="p-3 chat-unread">
+                        <a href="#" class="d-flex w-100" id="activity-area-tambang">
+                            <div class="chat-user-info">
+                                <h6 class="text-truncate mb-0"><?= $a['title'] ?> <?= $a['wmps'] ?></h6>
+                                <div class="last-chat">
+                                    <!-- <p class="mb-0 text-truncate" style="color: black">2 Januari 2021 (3 jam)<span class="badge rounded-pill bg-primary ms-2">Proses</span></p> -->
+                                    <p class="mb-0 text-truncate" style="color: black"><?= $a['updated_at'] ?><span class="badge rounded-pill bg-primary ms-2"><?= $a['status'] ?></span></p>
+                                </div>
                             </div>
-                        </div>
-                    </a>
-                </li>
+                        </a>
+                    </li>
+                <?php endforeach; ?>
             </ul>
         </div>
     </div>

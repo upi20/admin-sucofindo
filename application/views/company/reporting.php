@@ -69,11 +69,11 @@
                     </table>
                     <hr>
 
-                    <form action="#" method="GET" id="reporting-form-cari" style="display: block;">
+                    <form action="#" method="GET" id="reporting-form-cari" style="display: block; overflow-x: scroll;">
                         <table style="width: 100%;">
                             <tbody>
                                 <tr>
-                                    <td style="width: 49%;">
+                                    <td style="width: 100%;">
                                         <div class="form-group mb-0">
                                             <select class="form-select form-select-sm" id="defaultSelectSm" name="defaultSelectSm" aria-label="Default select example">
                                                 <option value="" selected="">--Area Tambang--</option>
@@ -82,8 +82,8 @@
                                             </select>
                                         </div>
                                     </td>
-                                    <td style="width: 2%;"></td>
-                                    <td style="width: 49%;">
+                                    <td style="width: 0%;"></td>
+                                    <td style="width: 100%;">
                                         <div class="form-group mb-0">
                                             <select class="form-select form-select-sm" id="defaultSelectSm" name="defaultSelectSm" aria-label="Default select example">
                                                 <option value="" selected="">-- WMP--</option>
