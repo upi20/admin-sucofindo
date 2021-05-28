@@ -1,7 +1,7 @@
 <?php
 defined('BASEPATH') or exit('No direct script access allowed');
 
-class Reporting extends CI_Controller
+class Reporting extends Render_Controller
 {
 
     public function index()
