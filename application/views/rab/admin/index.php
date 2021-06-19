@@ -89,6 +89,10 @@
     <script src="<?= base_url() ?>assets/js/default/clipboard.js"></script>
     <!-- PWA-->
     <script src="<?= base_url() ?>assets/js/pwa.js"></script>
+    <script>
+        const my_acctive_menu = "rab";
+    </script>
+    <script src="<?= base_url() ?>assets/js/default/menu-active.js"></script>
 </body>
 
 </html>

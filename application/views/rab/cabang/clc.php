@@ -10,7 +10,7 @@
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black">
     <!-- Title-->
-    <title>Pengaturan | JOMLASIELSI</title>
+    <title>RAB CLC | JOMLASIELSI</title>
     <!-- Favicon-->
     <link rel="apple-touch-icon" sizes="57x57" href="<?= base_url() ?>assets/favicon/bg-white/apple-icon-57x57.png">
     <link rel="apple-touch-icon" sizes="60x60" href="<?= base_url() ?>assets/favicon/bg-white/apple-icon-60x60.png">
@@ -42,25 +42,79 @@
     <link rel="stylesheet" href="<?= base_url() ?>assets/style.css">
     <!-- Web App Manifest-->
     <link rel="manifest" href="<?= base_url() ?>assets/manifest.json">
+    <style>
+        .nowrap {
+            white-space: nowrap;
+        }
+
+        <?php
+        for ($i = 5; $i <= 500; $i += 5) {
+            echo ".width$i {
+				max-width: $i" . "px;
+				min-width: $i" . "px;
+			}";
+        }
+        ?>
+    </style>
 </head>
 
 <body>
-    <?php $this->load->view('element-header'); ?>
-
+    <div class="header-area" id="headerArea">
+        <div class="container">
+            <!-- Header Content-->
+            <div class="header-content position-relative d-flex align-items-center justify-content-between">
+                <!-- Back Button-->
+                <div class="back-button"><a href="<?= base_url('rab') ?>"><svg width="32" height="32" viewBox="0 0 16 16" class="bi bi-arrow-left-short" fill="currentColor" xmlns="../../www.w3.org/2000/svg.html">
+                            <path fill-rule="evenodd" d="M12 8a.5.5 0 0 1-.5.5H5.707l2.147 2.146a.5.5 0 0 1-.708.708l-3-3a.5.5 0 0 1 0-.708l3-3a.5.5 0 1 1 .708.708L5.707 7.5H11.5a.5.5 0 0 1 .5.5z" />
+                        </svg></a></div>
+                <!-- Page Title-->
+                <div class="page-heading">
+                    <h6 class="mb-0"><?= $title ?></h6>
+                </div>
+                <!-- Settings-->
+                <div class="setting-wrapper">
+                    <a class="btn btn-sm btn-primary" id="settingTriggerBtn" href="#">
+                        Tambah
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
     <div class="page-content-wrapper py-3 elements-page">
         <div class="container">
             <div class="elements-heading mb-3">
                 <nav aria-label="breadcrumb">
                     <ol class="breadcrumb mb-0 py-2 px-3 rounded" id="list-breadcrumb">
                         <li class="breadcrumb-item"><a href="<?= base_url() ?>">Dashboard</a></li>
-                        <li class="breadcrumb-item active" aria-current="page">Pengaturan</li>
+                        <li class="breadcrumb-item"><a href="<?= base_url('rab') ?>">RAB</a></li>
+                        <li class="breadcrumb-item active" aria-current="page">CLC</li>
                     </ol>
                 </nav>
             </div>
             <div class="card">
                 <div class="card-body">
-                    <a class="page--item" href="<?= base_url("setting/profile") ?>">Profile<i class="fa fa-angle-right"></i></a>
-                    <a class="page--item" href="<?= base_url("login/logout") ?>">Logout<i class="fa fa-angle-right"></i></a>
+                    <table class="data-table w-100" id="dataTable">
+                        <thead>
+                            <tr>
+                                <th> Kode Standar</th>
+                                <th> Uraian</th>
+                                <th> Jumlah</th>
+                                <th> Satuan</th>
+                                <th> Jumlah</th>
+                                <th> Satuan</th>
+                                <th> Jumlah</th>
+                                <th> Satuan</th>
+                                <th> Jumlah</th>
+                                <th> Satuan</th>
+                                <th> Harga (RM)</th>
+                                <th> Harga (Rp)</th>
+                                <th> Jumlah (RM)</th>
+                                <th> Jumlah (Rp)</th>
+                                <th> Keterangan</th>
+                                <th> Edit Data</th>
+                            </tr>
+                        </thead>
+                    </table>
                 </div>
             </div>
         </div>
@@ -89,11 +143,12 @@
     <script src="<?= base_url() ?>assets/js/default/clipboard.js"></script>
     <!-- PWA-->
     <script src="<?= base_url() ?>assets/js/pwa.js"></script>
-    <!-- menu active footer -->
     <script>
-        const my_acctive_menu = "setting";
+        const my_acctive_menu = "rab";
+        const base_url = "<?= base_url() ?>";
     </script>
     <script src="<?= base_url() ?>assets/js/default/menu-active.js"></script>
+    <script src="<?= base_url() ?>assets/page/rab/cabang/clc.js"></script>
 </body>
 
 </html>

@@ -66,6 +66,7 @@
                     <a class="page--item" href="<?= base_url("setting") ?>">Pengguna<i class="fa fa-angle-right"></i></a>
                     <a class="page--item" href="<?= base_url("setting") ?>">RAB<i class="fa fa-angle-right"></i></a>
                     <a class="page--item" href="<?= base_url("setting") ?>">Laporan<i class="fa fa-angle-right"></i></a>
+                    <a class="page--item" href="<?= base_url("login/logout") ?>">Logout<i class="fa fa-angle-right"></i></a>
                 </div>
             </div>
         </div>
@@ -94,6 +95,10 @@
     <script src="<?= base_url() ?>assets/js/default/clipboard.js"></script>
     <!-- PWA-->
     <script src="<?= base_url() ?>assets/js/pwa.js"></script>
+    <script>
+        const my_acctive_menu = "setting";
+    </script>
+    <script src="<?= base_url() ?>assets/js/default/menu-active.js"></script>
 </body>
 
 </html>

@@ -147,6 +147,11 @@
   <script src="<?= base_url() ?>assets/js/default/clipboard.js"></script>
   <!-- PWA-->
   <script src="<?= base_url() ?>assets/js/pwa.js"></script>
+  <!-- menu active footer -->
+  <script>
+    const my_acctive_menu = "home";
+  </script>
+  <script src="<?= base_url() ?>assets/js/default/menu-active.js"></script>
 </body>
 
 </html>

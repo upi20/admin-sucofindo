@@ -4,39 +4,39 @@
     <!-- Footer Content-->
     <div class="footer-nav position-relative">
 
-      <ul class="h-100 d-flex align-items-center justify-content-between ps-0">
-        <li class="active"><a href="<?= base_url() ?>home">
-            <i class="fa fa-suitcase fa-2x" style="color: #a3a3a3;" aria-hidden="true"></i>
-            <span style="color: #a3a3a3">Dashboard</span></a>
+      <ul class="h-100 d-flex align-items-center justify-content-between ps-0" id="footer-menu">
+        <li data-name="home"><a href="<?= base_url() ?>home">
+            <i class="fa fa-suitcase fa-2x" aria-hidden="true"></i>
+            <span>Dashboard</span></a>
         </li>
         <?php if ($this->session->userdata("data")['level'] == "Super Admin") : ?>
-          <li>
+          <li data-name="cabang">
             <a href="<?= base_url() ?>cabang">
-              <i class="fa fa-building fa-2x" style="color: #a3a3a3;" aria-hidden="true"></i>
-              <span style="color: #a3a3a3">Cabang</span></a>
+              <i class="fa fa-building fa-2x" aria-hidden="true"></i>
+              <span>Cabang</span></a>
           </li>
         <?php endif ?>
-        <li>
+        <li data-name="rab">
           <a href="<?= base_url() ?>rab">
-            <i class="fa fa-list-ul fa-2x" style="color: #a3a3a3;" aria-hidden="true"></i>
-            <span style="color: #a3a3a3">RAB</span></a>
+            <i class="fa fa-list-ul fa-2x" aria-hidden="true"></i>
+            <span>RAB</span></a>
         </li>
-        <li>
+        <li data-name="realisasi">
           <a href="<?= base_url() ?>realisasi">
-            <i class="fa fa-usd fa-2x" style="color: #a3a3a3;" aria-hidden="true"></i>
-            <span style="color: #a3a3a3">Realisasi</span></a>
+            <i class="fa fa-usd fa-2x" styl aria-hidden="true"></i>
+            <span>Realisasi</span></a>
         </li>
         <?php if ($this->session->userdata("data")['level'] == "Super Admin") : ?>
-          <li>
+          <li data-name="laporan">
             <a href="<?= base_url() ?>laporan">
-              <i class="fa fa-book fa-2x" style="color: #a3a3a3;" aria-hidden="true"></i>
-              <span style="color: #a3a3a3">Laporan</span></a>
+              <i class="fa fa-book fa-2x" sty aria-hidden="true"></i>
+              <span>Laporan</span></a>
           </li>
         <?php endif ?>
-        <li>
+        <li data-name="setting">
           <a href="<?= base_url() ?>setting">
-            <i class="fa fa-cogs fa-2x" style="color: #a3a3a3;" aria-hidden="true"></i>
-            <span style="color: #a3a3a3">Pengaturan</span></a>
+            <i class="fa fa-cogs fa-2x" sty aria-hidden="true"></i>
+            <span>Pengaturan</span></a>
         </li>
       </ul>
     </div>
