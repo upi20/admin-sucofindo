@@ -14,6 +14,10 @@ class Setting extends CI_Controller
 
         if ($this->session->userdata("data")['level'] == "Super Admin") {
             $this->load->view("setting/admin/index");
+        } else if ($this->session->userdata("data")['level'] == "Admin Sekolah") {
+            $this->load->view("setting/cabang/index");
+        } else {
+            redirect("login");
         }
     }
 }

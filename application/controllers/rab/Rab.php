@@ -13,6 +13,10 @@ class Rab extends CI_Controller
 
         if ($this->session->userdata("data")['level'] == "Super Admin") {
             $this->load->view("rab/admin/index");
+        } else if ($this->session->userdata("data")['level'] == "Admin Sekolah") {
+            $this->load->view("rab/cabang/index");
+        } else {
+            redirect("login");
         }
     }
 }

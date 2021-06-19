@@ -13,6 +13,10 @@ class Realisasi extends CI_Controller
 
         if ($this->session->userdata("data")['level'] == "Super Admin") {
             $this->load->view("realisasi/admin/index");
+        } else if ($this->session->userdata("data")['level'] == "Admin Sekolah") {
+            $this->load->view("realisasi/cabang/index");
+        } else {
+            redirect("login");
         }
     }
 }

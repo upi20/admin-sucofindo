@@ -13,6 +13,8 @@ class Laporan extends CI_Controller
 
         if ($this->session->userdata("data")['level'] == "Super Admin") {
             $this->load->view("laporan/admin/index");
+        } else {
+            redirect("login");
         }
     }
 }

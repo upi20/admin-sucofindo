@@ -12,6 +12,8 @@ class Cabang extends CI_Controller
     {
         if ($this->session->userdata("data")['level'] == "Super Admin") {
             $this->load->view("cabang/admin/index");
+        } else {
+            redirect("login");
         }
     }
 }
