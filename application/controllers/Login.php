@@ -17,40 +17,42 @@ class Login extends Render_Controller
 
 	public function doLogin()
 	{
-		$email 	= $this->input->post('email');
+		$username 	= $this->input->post('email');
 		$password 	= $this->input->post('password');
 
-		$login 		= $this->login->cekLogin($email, $password);
+		// Cek login ke model
+		$login 		= $this->login->cekLogin($username, $password);
+
 
 		if ($login['status'] == 0) {
 			// Set session value
-			$session = [
+			$session = array(
 				'status' => true,
-				'data' => [
-					'id' => $login['data'][0]['id'],
+				'data'	 => array(
+					'id' => $login['data'][0]['user_id'],
 					'nama' => $login['data'][0]['user_nama'],
 					'email' => $login['data'][0]['user_email'],
 					'level' => $login['data'][0]['lev_nama'],
-					'level_id' => $login['data'][0]['id_lev'],
-					'jabatan' => $login['data'][0]['jabatan_nama'],
-					'jabatan_id' => $login['data'][0]['id_jabatan'],
-					'id_perusahaan' => $login['data'][0]['id_perusahaan'],
-					'user_photo' => $login['data'][0]['user_photo'],
-				]
-			];
+					'level_id' => $login['data'][0]['lev_id'],
+				)
+			);
+
 			$this->session->set_userdata($session);
+
+			$this->output_json(['status' => 0]);
 		} else if ($login['status'] == 1) {
 			$this->output_json(['status' => 1]);
 		} else {
 			$this->output_json(['status' => 2]);
 		}
-		$this->output_json($login['status']);
 	}
 
 	public function logout()
 	{
 		$session = array('status', 'data');
+
 		$this->session->unset_userdata($session);
+
 		redirect('login', 'refresh');
 	}
 }

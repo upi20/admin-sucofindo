@@ -159,25 +159,29 @@
             },
             success: function(response) {
               let view_alert = $("#view-alert");
-              if (response == 1) {
+
+
+              if (response.status == 1) {
                 setToast('danger', 'danger', 'Failed', 'Sorry your password is wrong');
 
                 $('#password').val('')
 
                 $('#password').focus()
-              } else if (response == 2) {
+              } else if (response.status == 2) {
                 setToast('danger', 'danger', 'Failed', 'Your account was not found');
                 $('#email').val('')
                 $('#password').val('')
 
                 $('#email').focus()
-              } else {
+              } else if (response.status == 0) {
                 setToast('success', 'primary', 'Success', 'Login success');
-
                 setInterval(() => {
                   window.location.href = '<?= base_url() ?>home'
                 }, 1000)
+              } else {
+                setToast('danger', 'danger', 'Failed', 'Bad network connection.');
               }
+
             },
             error: function(jqXHR, textStatus, errorThrown) {
               alert(textStatus, errorThrown);
