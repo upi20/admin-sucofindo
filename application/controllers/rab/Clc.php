@@ -70,4 +70,14 @@ class Clc extends CI_Controller
 
         echo json_encode(array('recordsTotal' => $count, 'recordsFiltered' => $count, 'draw' => $draw, 'search' => $_cari, 'data' => $data));
     }
+
+    public function tambah()
+    {
+        if ($this->session->userdata("data")['level'] == "Admin Sekolah") {
+
+            $this->load->view("rab/cabang/clc-tambah");
+        } else {
+            redirect("login");
+        }
+    }
 }

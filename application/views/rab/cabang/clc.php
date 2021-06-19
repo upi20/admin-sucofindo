@@ -73,7 +73,7 @@
                 </div>
                 <!-- Settings-->
                 <div class="setting-wrapper">
-                    <a class="btn btn-sm btn-primary" id="settingTriggerBtn" href="#">
+                    <a class="btn btn-sm btn-primary" id="settingTriggerBtn" href="<?= base_url('rab/clc/tambah') ?>">
                         Tambah
                     </a>
                 </div>
