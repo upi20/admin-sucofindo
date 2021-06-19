@@ -55,4 +55,8 @@ $route['translate_uri_dashes'] = TRUE;
 
 $route['javascripts/(:any).js'] = 'loader/javascripts/$1';
 $route['stylesheets/(:any).css'] = 'loader/stylesheets/$1';
-$route['company'] = '/company/company';
+$route['cabang'] = '/cabang/cabang';
+$route['rab'] = '/rab/rab';
+$route['realisasi'] = '/realisasi/realisasi';
+$route['laporan'] = '/laporan/laporan';
+$route['setting'] = '/setting/setting';

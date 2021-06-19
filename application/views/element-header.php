@@ -47,33 +47,43 @@
   <ul class="sidenav-nav ps-0">
     <li>
       <a href="<?= base_url() ?>home">
-        <i class="fa fa-home" aria-hidden="true"></i>
-        &nbsp; Home</a>
+        <i class="fa fa-suitcase" aria-hidden="true"></i>
+        &nbsp; Dashboard</a>
     </li>
     <li>
-      <a href="<?= base_url() ?>company">
+      <a href="<?= base_url() ?>cabang">
         <i class="fa fa-building" aria-hidden="true"></i>
-        &nbsp; Company</a>
+        &nbsp; Cabang</a>
     </li>
     <li>
-      <a href="<?= base_url() ?>info">
-        <i class="fa fa-info-circle" aria-hidden="true"></i>
-        &nbsp; Info</a>
+      <a href="<?= base_url() ?>rab/rab">
+        <i class="fa fa-list-ul" aria-hidden="true"></i>
+        &nbsp; RAB</a>
     </li>
     <li>
-      <a href="<?= base_url() ?>profile">
-        <i class="fa fa-user" aria-hidden="true"></i>
-        &nbsp; Profile</a>
+      <a href="<?= base_url() ?>realisasi">
+        <i class="fa fa-usd" aria-hidden="true"></i>
+        &nbsp; Realisasi</a>
     </li>
     <li>
-      <a href="<?= base_url() ?>login/logout">
+      <a href="<?= base_url() ?>laporan">
+        <i class="fa fa-book" aria-hidden="true"></i>
+        &nbsp; Laporan</a>
+    </li>
+    <li>
+      <a href="<?= base_url() ?>setting">
+        <i class="fa fa-cogs" aria-hidden="true"></i>
+        &nbsp; Pengaturan</a>
+    </li>
+    <li>
+      <a href="<?= base_url() ?>login">
         <i class="fa fa-sign-out" aria-hidden="true"></i>
         &nbsp; Logout</a>
     </li>
   </ul>
   <!-- Copyright Info-->
   <div class="copyright-info">
-    <p>&copy; 2021 All rights reserved by<a href="#" style="color: #0036D3">Sucofindo</a></p>
+    <p>Copyright &copy; 2021 Hak Cipta <b><a style="color: #8480AE;" href="https://infinit.id/">CV. Adikarya Infinit</a> &amp; SIKK </b> </p>
   </div>
 </div>
 
