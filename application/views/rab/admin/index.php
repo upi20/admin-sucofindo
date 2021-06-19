@@ -59,8 +59,8 @@
             </div>
             <div class="card">
                 <div class="card-body">
-                    <a class="page--item" href="<?= base_url("setting") ?>/aktifitas">Aktifitas Utama<i class="fa fa-angle-right"></i></a>
-                    <a class="page--item" href="<?= base_url("setting") ?>/preview">Preview<i class="fa fa-angle-right"></i></a>
+                    <a class="page--item" href="<?= base_url("rab") ?>/aktifitas">Aktifitas Utama<i class="fa fa-angle-right"></i></a>
+                    <a class="page--item" href="<?= base_url("rab") ?>/preview">Preview<i class="fa fa-angle-right"></i></a>
                 </div>
             </div>
         </div>

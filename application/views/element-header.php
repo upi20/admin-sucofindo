@@ -37,10 +37,10 @@
   <div class="sidenav-profile" style="background-color: #0036D3">
     <div class="sidenav-style1"></div>
     <!-- User Thumbnail-->
-    <div class="user-profile"><img src="<?= base_url() ?>assets/img/users-profile/session photo" alt=""></div>
+    <div class="user-profile"><img src="<?= base_url() ?>assets/img/kinabalu.jpg" alt=""></div>
     <!-- User Info-->
     <div class="user-info">
-      <h6 class="user-name mb-0">Session Jabatan</h6><span>session nama</span>
+      <h6 class="user-name mb-0"><?= $this->session->userdata("data")['nama'] ?></h6><span><?= $this->session->userdata("data")['level'] ?></span>
     </div>
   </div>
   <!-- Sidenav Nav-->
@@ -50,11 +50,13 @@
         <i class="fa fa-suitcase" aria-hidden="true"></i>
         &nbsp; Dashboard</a>
     </li>
-    <li>
-      <a href="<?= base_url() ?>cabang">
-        <i class="fa fa-building" aria-hidden="true"></i>
-        &nbsp; Cabang</a>
-    </li>
+    <?php if ($this->session->userdata("data")['level'] == "Super Admin") : ?>
+      <li>
+        <a href="<?= base_url() ?>cabang">
+          <i class="fa fa-building" aria-hidden="true"></i>
+          &nbsp; Cabang</a>
+      </li>
+    <?php endif ?>
     <li>
       <a href="<?= base_url() ?>rab/rab">
         <i class="fa fa-list-ul" aria-hidden="true"></i>
@@ -65,22 +67,27 @@
         <i class="fa fa-usd" aria-hidden="true"></i>
         &nbsp; Realisasi</a>
     </li>
-    <li>
-      <a href="<?= base_url() ?>laporan">
-        <i class="fa fa-book" aria-hidden="true"></i>
-        &nbsp; Laporan</a>
-    </li>
+    <?php if ($this->session->userdata("data")['level'] == "Super Admin") : ?>
+      <li>
+        <a href="<?= base_url() ?>laporan">
+          <i class="fa fa-book" aria-hidden="true"></i>
+          &nbsp; Laporan</a>
+      </li>
+    <?php endif ?>
     <li>
       <a href="<?= base_url() ?>setting">
         <i class="fa fa-cogs" aria-hidden="true"></i>
         &nbsp; Pengaturan</a>
     </li>
     <li>
-      <a href="<?= base_url() ?>login">
+      <a href="<?= base_url() ?>login/logout">
         <i class="fa fa-sign-out" aria-hidden="true"></i>
         &nbsp; Logout</a>
     </li>
   </ul>
+
+
+
   <!-- Copyright Info-->
   <div class="copyright-info">
     <p>Copyright &copy; 2021 Hak Cipta <b><a style="color: #8480AE;" href="https://infinit.id/">CV. Adikarya Infinit</a> &amp; SIKK </b> </p>

@@ -59,10 +59,6 @@
             </div>
             <div class="card">
                 <div class="card-body">
-                    <a class="page--item" href="<?= base_url("cabang") ?>">Header Menu<i class="fa fa-angle-right"></i></a>
-                    <a class="page--item" href="<?= base_url("cabang") ?>">Footer Menu<i class="fa fa-angle-right"></i></a>
-                    <a class="page--item" href="element-sidebar-left-menu.html">Sidebar Left Menu<i class="fa fa-angle-right"></i></a>
-                    <a class="page--item" href="element-sidebar-right-menu.html">Sidebar Right Menu<i class="fa fa-angle-right"></i></a>
                 </div>
             </div>
         </div>

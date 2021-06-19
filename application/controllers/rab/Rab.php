@@ -5,12 +5,13 @@ class Rab extends CI_Controller
 {
     function __construct()
     {
+        parent::__construct();
         $this->sesion->cek_session();
     }
     public function index()
     {
 
-        if ($this->session->userdata("data")['nama'] == "Admin Pusat") {
+        if ($this->session->userdata("data")['level'] == "Super Admin") {
             $this->load->view("rab/admin/index");
         }
     }

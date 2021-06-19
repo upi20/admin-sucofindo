@@ -59,6 +59,7 @@
             </div>
             <div class="card">
                 <div class="card-body">
+                    <a class="page--item" href="<?= base_url("setting") ?>">Profile<i class="fa fa-angle-right"></i></a>
                     <a class="page--item" href="<?= base_url("setting") ?>">Periode<i class="fa fa-angle-right"></i></a>
                     <a class="page--item" href="<?= base_url("setting") ?>">Kurs<i class="fa fa-angle-right"></i></a>
                     <a class="page--item" href="<?= base_url("setting") ?>">Level<i class="fa fa-angle-right"></i></a>

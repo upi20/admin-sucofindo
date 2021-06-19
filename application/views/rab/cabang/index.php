@@ -10,16 +10,24 @@
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black">
     <!-- Title-->
-    <title>ADMIN SUCOFINDO</title>
-    <!-- Fonts-->
-    <link rel="preconnect" href="../../fonts.gstatic.com/index.html">
-    <link href="../../fonts.googleapis.com/css25af9.css?family=Public+Sans:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&amp;display=swap" rel="stylesheet">
+    <title>RAB | JOMLASIELSI</title>
     <!-- Favicon-->
-    <link rel="icon" href="img/core-img/favicon.ico">
-    <link rel="apple-touch-icon" href="img/icons/icon-96x96.png">
-    <link rel="apple-touch-icon" sizes="152x152" href="<?= base_url() ?>assets/img/icons/icon-152x152.png">
-    <link rel="apple-touch-icon" sizes="167x167" href="<?= base_url() ?>assets/img/icons/icon-167x167.png">
-    <link rel="apple-touch-icon" sizes="180x180" href="<?= base_url() ?>assets/img/icons/icon-180x180.png">
+    <link rel="apple-touch-icon" sizes="57x57" href="<?= base_url() ?>assets/favicon/bg-white/apple-icon-57x57.png">
+    <link rel="apple-touch-icon" sizes="60x60" href="<?= base_url() ?>assets/favicon/bg-white/apple-icon-60x60.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="<?= base_url() ?>assets/favicon/bg-white/apple-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="76x76" href="<?= base_url() ?>assets/favicon/bg-white/apple-icon-76x76.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="<?= base_url() ?>assets/favicon/bg-white/apple-icon-114x114.png">
+    <link rel="apple-touch-icon" sizes="120x120" href="<?= base_url() ?>assets/favicon/bg-white/apple-icon-120x120.png">
+    <link rel="apple-touch-icon" sizes="144x144" href="<?= base_url() ?>assets/favicon/bg-white/apple-icon-144x144.png">
+    <link rel="apple-touch-icon" sizes="152x152" href="<?= base_url() ?>assets/favicon/bg-white/apple-icon-152x152.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="<?= base_url() ?>assets/favicon/bg-white/apple-icon-180x180.png">
+    <link rel="icon" type="image/png" sizes="192x192" href="<?= base_url() ?>assets/favicon/bg-white/android-icon-192x192.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="<?= base_url() ?>assets/favicon/bg-white/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="96x96" href="<?= base_url() ?>assets/favicon/bg-white/favicon-96x96.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="<?= base_url() ?>assets/favicon/bg-white/favicon-16x16.png">
+    <link rel="manifest" href="<?= base_url() ?>assets/favicon/bg-white/manifest.json">
+    <meta name="msapplication-TileColor" content="#0134d4">
+    <meta name="msapplication-TileImage" content="<?= base_url() ?>assets/favicon/bg-white/ms-icon-144x144.png">
     <!-- CSS Libraries-->
     <link rel="stylesheet" href="<?= base_url() ?>assets/css/bootstrap.min.css">
     <link rel="stylesheet" href="<?= base_url() ?>assets/css/animate.css">
@@ -39,32 +47,22 @@
 <body>
     <?php $this->load->view('element-header'); ?>
 
-    <div class="page-content-wrapper py-3">
-        <div class="container" style="margin-top: -5px;">
-            <nav aria-label="breadcrumb">
-                <ol class="breadcrumb mb-0 py-2 px-3 rounded" id="list-breadcrumb">
-                    <li class="breadcrumb-item"><a href="<?= base_url() ?>">Home</a></li>
-                    <li class="breadcrumb-item"><a href="<?= base_url('company') ?>">Company</a></li>
-                    <li class="breadcrumb-item active" aria-current="page">Kinerja Penilaian Indeks Menu</li>
-                </ol>
-            </nav>
-        </div>
-
-
-        <div class="container mt-3">
-            <h6 class="ps-1">Kinerja Penilaian Indeks Menu</h6>
-            <ul class="ps-0 chat-user-list">
-                <li class="p-3 chat-unread">
-                    <a href="#" class="d-flex w-100" id="activity-area-tambang">
-                        <div class="chat-user-info">
-                            <h6 class="text-truncate mb-0">LMO - WMP LT 3</h6>
-                            <div class="last-chat">
-                                <p class="mb-0 text-truncate">2 Januari 2021 (3 jam)<span class="badge rounded-pill bg-primary ms-2">Proses</span></p>
-                            </div>
-                        </div>
-                    </a>
-                </li>
-            </ul>
+    <div class="page-content-wrapper py-3 elements-page">
+        <div class="container">
+            <div class="elements-heading mb-3">
+                <nav aria-label="breadcrumb">
+                    <ol class="breadcrumb mb-0 py-2 px-3 rounded" id="list-breadcrumb">
+                        <li class="breadcrumb-item"><a href="<?= base_url() ?>">Dashboard</a></li>
+                        <li class="breadcrumb-item active" aria-current="page">RAB</li>
+                    </ol>
+                </nav>
+            </div>
+            <div class="card">
+                <div class="card-body">
+                    <a class="page--item" href="<?= base_url("rab") ?>/clc">CLC<i class="fa fa-angle-right"></i></a>
+                    <a class="page--item" href="<?= base_url("rab") ?>/preview">Preview<i class="fa fa-angle-right"></i></a>
+                </div>
+            </div>
         </div>
     </div>
 
@@ -89,9 +87,6 @@
     <script src="<?= base_url() ?>assets/js/jquery.dataTables.min.js"></script>
     <script src="<?= base_url() ?>assets/js/default/active.js"></script>
     <script src="<?= base_url() ?>assets/js/default/clipboard.js"></script>
-    <!-- Apex Chart-->
-    <script src="<?= base_url() ?>assets/js/apexcharts.min.js"></script>
-    <script src="<?= base_url() ?>assets/js/default/chart-active.js"></script>
     <!-- PWA-->
     <script src="<?= base_url() ?>assets/js/pwa.js"></script>
 </body>

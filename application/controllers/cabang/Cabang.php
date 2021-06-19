@@ -10,8 +10,7 @@ class Cabang extends CI_Controller
     }
     public function index()
     {
-
-        if ($this->session->userdata("data")['nama'] == "Admin Pusat") {
+        if ($this->session->userdata("data")['level'] == "Super Admin") {
             $this->load->view("cabang/admin/index");
         }
     }

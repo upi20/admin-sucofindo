@@ -59,10 +59,10 @@
             </div>
             <div class="card">
                 <div class="card-body">
-                    <a class="page--item" href="<?= base_url("setting") ?>">BKU<i class="fa fa-angle-right"></i></a>
-                    <a class="page--item" href="<?= base_url("setting") ?>">Standar<i class="fa fa-angle-right"></i></a>
-                    <a class="page--item" href="<?= base_url("setting") ?>">Rekap<i class="fa fa-angle-right"></i></a>
-                    <a class="page--item" href="<?= base_url("setting") ?>">Rekapitulasi RAB<i class="fa fa-angle-right"></i></a>
+                    <a class="page--item" href="<?= base_url("laporan") ?>">BKU<i class="fa fa-angle-right"></i></a>
+                    <a class="page--item" href="<?= base_url("laporan") ?>">Standar<i class="fa fa-angle-right"></i></a>
+                    <a class="page--item" href="<?= base_url("laporan") ?>">Rekap<i class="fa fa-angle-right"></i></a>
+                    <a class="page--item" href="<?= base_url("laporan") ?>">Rekapitulasi RAB<i class="fa fa-angle-right"></i></a>
                 </div>
             </div>
         </div>

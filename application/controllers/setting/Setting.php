@@ -6,14 +6,13 @@ class Setting extends CI_Controller
     function __construct()
     {
         parent::__construct();
-        if (!isset($this->session->userdata("data")['nama'])) {
-            redirect('login');
-        }
+
+        $this->sesion->cek_session();
     }
     public function index()
     {
 
-        if ($this->session->userdata("data")['nama'] == "Admin Pusat") {
+        if ($this->session->userdata("data")['level'] == "Super Admin") {
             $this->load->view("setting/admin/index");
         }
     }
