@@ -10,7 +10,7 @@
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black">
   <!-- Title-->
-  <title>ADMIN SUCOFINDO</title>
+  <title>JOMLASIELSI</title>
   <!-- Fonts-->
   <link rel="preconnect" href="<?= base_url() ?>assets/../../fonts.gstatic.com/index.html">
   <link href="<?= base_url() ?>assets/../../fonts.googleapis.com/css25af9.css?family=Public+Sans:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&amp;display=swap" rel="stylesheet">
@@ -69,10 +69,9 @@
     <div class="container">
       <div class="row justify-content-center">
         <div class="col-12 col-sm-9 col-md-7 col-lg-6 col-xl-5">
-          <div class="text-center px-4"><img class="login-intro-img" src="<?= base_url() ?>assets/img/bg-img/img_sucofindo.png" alt=""></div>
+          <div class="text-center px-4"><img class="login-intro-img" src="<?= base_url() ?>assets/img/logo.png" alt=""></div>
           <!-- Register Form-->
           <div class="register-form mt-4 px-4">
-            <h6 class="mb-3 text-center" style="color: #000000;">Log in to continue Admin Sucofindo</h6>
 
             <form id="login-form">
               <div class="form-group">
@@ -84,9 +83,6 @@
               <button class="btn btn-primary w-100" type="submit" style="background-color: #0036D3;border:none">Sign In</button>
             </form>
 
-          </div>
-          <!-- Login Meta-->
-          <div class="login-meta-data text-center"><a class="stretched-link forgot-password d-block mt-3 mb-1" href="<?= base_url() ?>forgetpassword" style="color: black">Forgot Password?</a>
           </div>
         </div>
       </div>

@@ -54,7 +54,7 @@
             <ul class="ps-0 chat-user-list">
                 <?php foreach ($activity as $a) : ?>
                     <li class="p-3 chat-unread">
-                        <a href="#" class="d-flex w-100" id="activity-area-tambang">
+                        <a href="<?= base_url('company/activity/detail/') . $a['id'] ?>" class="d-flex w-100" id="activity-area-tambang">
                             <div class="chat-user-info">
                                 <h6 class="text-truncate mb-0"><?= $a['title'] ?> <?= $a['wmps'] ?></h6>
                                 <div class="last-chat">

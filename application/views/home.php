@@ -41,97 +41,88 @@
 
   <div class="page-content-wrapper">
     <!-- Hero Slides-->
-    <div class="owl-carousel-one owl-carousel">
-      <!-- Single Hero Slide-->
-      <div class="single-hero-slide bg-overlay" style="background-image: url('assets/img/bg-img/img_bg1.jpg')">
-        <div class="slide-content h-100 d-flex align-items-center text-center">
-          <div class="container">
-            <h4 class="text-white mb-1" data-animation="fadeInUp" data-delay="100ms" data-wow-duration="500ms">SUCOFINDO</h4>
-            <p class="text-white mb-4" data-animation="fadeInUp" data-delay="400ms" data-wow-duration="500ms">ALUS PISAN...</p>
-          </div>
-        </div>
-      </div>
-      <!-- Single Hero Slide-->
-      <div class="single-hero-slide bg-overlay" style="background-image: url('assets/img/bg-img/img_bg2.jpg')">
-        <div class="slide-content h-100 d-flex align-items-center text-center">
-          <div class="container">
-            <h4 class="text-white mb-1" data-animation="fadeInUp" data-delay="100ms" data-wow-duration="1000ms">SUCOFINDO</h4>
-            <p class="text-white mb-4" data-animation="fadeInUp" data-delay="400ms" data-wow-duration="1000ms">ALUS PISAN...</p>
-          </div>
-        </div>
-      </div>
-      <!-- Single Hero Slide-->
-      <div class="single-hero-slide bg-overlay" style="background-image: url('assets/img/bg-img/img_bg3.jpg')">
-        <div class="slide-content h-100 d-flex align-items-center text-center">
-          <div class="container">
-            <h4 class="text-white mb-1" data-animation="fadeInUp" data-delay="100ms" data-wow-duration="1000ms">SUCOFINDO</h4>
-            <p class="text-white mb-4" data-animation="fadeInUp" data-delay="400ms" data-wow-duration="1000ms">ALUS PISAN...</p>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div class="container" style="margin-top: 12px">
-      <h6 class="ps-1" style="text-align: left; color: black">Activity Area Tambang</h6>
-      <?php foreach ($activity as $a) : ?>
-        <ul class="ps-0 chat-user-list my-2">
-          <li class="p-3 chat-unread">
-            <a class="d-flex" id="activity-area-tambang">
-              <div class="chat-user-info">
-                <h6 class="text-truncate mb-0"><?= $a['title'] ?> <?= $a['wmps'] ?></h6>
-                <div class="last-chat">
-                  <!-- <p class="mb-0 text-truncate" style="color: black">2 Januari 2021 (3 jam)<span class="badge rounded-pill bg-primary ms-2">Proses</span></p> -->
-                  <p class="mb-0 text-truncate" style="color: black"><?= $a['updated_at'] ?><span class="badge rounded-pill bg-primary ms-2"><?= $a['status'] ?></span></p>
+    <br>
+    <div class="notification-area" style="margin-top: 0px">
+      <div class="container">
+        <a href="page-notification-details.html">
+          <div class="alert unread custom-alert-3 alert-primary" role="alert">
+            <svg width="24" height="24" viewBox="0 0 16 16" class="bi bi-chat-dots" fill="currentColor" xmlns="../../www.w3.org/2000/svg.html">
+              <path fill-rule="evenodd" d="M2.678 11.894a1 1 0 0 1 .287.801 10.97 10.97 0 0 1-.398 2c1.395-.323 2.247-.697 2.634-.893a1 1 0 0 1 .71-.074A8.06 8.06 0 0 0 8 14c3.996 0 7-2.807 7-6 0-3.192-3.004-6-7-6S1 4.808 1 8c0 1.468.617 2.83 1.678 3.894zm-.493 3.905a21.682 21.682 0 0 1-.713.129c-.2.032-.352-.176-.273-.362a9.68 9.68 0 0 0 .244-.637l.003-.01c.248-.72.45-1.548.524-2.319C.743 11.37 0 9.76 0 8c0-3.866 3.582-7 8-7s8 3.134 8 7-3.582 7-8 7a9.06 9.06 0 0 1-2.347-.306c-.52.263-1.639.742-3.468 1.105z"/>
+              <path d="M5 8a1 1 0 1 1-2 0 1 1 0 0 1 2 0zm4 0a1 1 0 1 1-2 0 1 1 0 0 1 2 0zm4 0a1 1 0 1 1-2 0 1 1 0 0 1 2 0z"/>
+            </svg>
+            <div class="alert-text w-75">
+              <h6 class="text-truncate">Jumlah RAB</h6>
+              <div class="row">
+                <div class="col-6">
+                  <span class="text-truncate">RM 13,743</span>
+                </div>
+                <div class="col-6">
+                  <span class="text-truncate">Rp 48.099.100</span>
                 </div>
               </div>
-            </a>
-            <div class="dropstart chat-options-btn">
-              <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false"><i class="bi bi-three-dots-vertical"></i></button>
-              <ul class="dropdown-menu">
-                <li><a href="#"><i class="bi bi-mic-mute"></i>Mute</a></li>
-                <li><a href="#"><i class="bi bi-slash-circle"></i>Ban</a></li>
-                <li><a href="#"><i class="bi bi-trash"></i>Remove</a></li>
-              </ul>
             </div>
-          </li>
-        </ul>
-      <?php endforeach; ?>
+          </div>
+        </a>
 
-    </div>
-    <div class="container" style="margin-top: 12px">
-      <h6 class="ps-1" style="text-align: left; color: black">Area Tambang PT. BERAU COAL</h6>
-      <div class="row">
-        <div class="col-12">
-          <div class="card bg-danger mb-3 shadow-sm bg-gradient direction-rtl">
-            <div class="card-body" style="background-color: #0036D3">
-              <div class="row g-3">
-
-                <?php foreach ($aat as $at) : ?>
-                  <div class="col-4">
-                    <div class="feature-card mx-auto text-center">
-                      <div class="card shadow mx-auto" style="color: black"><?php echo $at['aats']; ?></div>
-                      <p class="mb-0" style="color: white"><?php echo $at['nama']; ?></p>
-                    </div>
-                  </div>
-                <?php endforeach; ?>
-
+        <a href="page-notification-details.html">
+          <div class="alert unread custom-alert-3 alert-primary" role="alert">
+            <svg width="24" height="24" viewBox="0 0 16 16" class="bi bi-chat-dots" fill="currentColor" xmlns="../../www.w3.org/2000/svg.html">
+              <path fill-rule="evenodd" d="M2.678 11.894a1 1 0 0 1 .287.801 10.97 10.97 0 0 1-.398 2c1.395-.323 2.247-.697 2.634-.893a1 1 0 0 1 .71-.074A8.06 8.06 0 0 0 8 14c3.996 0 7-2.807 7-6 0-3.192-3.004-6-7-6S1 4.808 1 8c0 1.468.617 2.83 1.678 3.894zm-.493 3.905a21.682 21.682 0 0 1-.713.129c-.2.032-.352-.176-.273-.362a9.68 9.68 0 0 0 .244-.637l.003-.01c.248-.72.45-1.548.524-2.319C.743 11.37 0 9.76 0 8c0-3.866 3.582-7 8-7s8 3.134 8 7-3.582 7-8 7a9.06 9.06 0 0 1-2.347-.306c-.52.263-1.639.742-3.468 1.105z"/>
+              <path d="M5 8a1 1 0 1 1-2 0 1 1 0 0 1 2 0zm4 0a1 1 0 1 1-2 0 1 1 0 0 1 2 0zm4 0a1 1 0 1 1-2 0 1 1 0 0 1 2 0z"/>
+            </svg>
+            <div class="alert-text w-75">
+              <h6 class="text-truncate">Total Realisasi Anggaran</h6>
+              <div class="row">
+                <div class="col-6">
+                  <span class="text-truncate">RM 13,743</span>
+                </div>
+                <div class="col-6">
+                  <span class="text-truncate">Rp 48.099.100</span>
+                </div>
               </div>
             </div>
           </div>
-        </div>
-      </div>
-    </div>
-    <div class="container">
-      <div class="card">
-        <div class="card-body">
-          <h2>Stared Company</h2>
-          <div class="testimonial-slide owl-carousel testimonial-style3">
-            <!-- Single Testimonial Slide-->
-            <div class="single-testimonial-slide">
-              <div class="text-content"><span class="d-inline-block badge bg-warning mb-2"><i class="bi bi-star-fill me-1"></i><i class="bi bi-star-fill me-1"></i><i class="bi bi-star-fill me-1"></i><i class="bi bi-star-fill me-1"></i><i class="bi bi-star-fill"></i></span><img src="<?= base_url() ?>assets/img/bg-img/img_beraucoal.png" />
+        </a>
+
+        <a href="page-notification-details.html">
+          <div class="alert unread custom-alert-3 alert-primary" role="alert">
+            <svg width="24" height="24" viewBox="0 0 16 16" class="bi bi-chat-dots" fill="currentColor" xmlns="../../www.w3.org/2000/svg.html">
+              <path fill-rule="evenodd" d="M2.678 11.894a1 1 0 0 1 .287.801 10.97 10.97 0 0 1-.398 2c1.395-.323 2.247-.697 2.634-.893a1 1 0 0 1 .71-.074A8.06 8.06 0 0 0 8 14c3.996 0 7-2.807 7-6 0-3.192-3.004-6-7-6S1 4.808 1 8c0 1.468.617 2.83 1.678 3.894zm-.493 3.905a21.682 21.682 0 0 1-.713.129c-.2.032-.352-.176-.273-.362a9.68 9.68 0 0 0 .244-.637l.003-.01c.248-.72.45-1.548.524-2.319C.743 11.37 0 9.76 0 8c0-3.866 3.582-7 8-7s8 3.134 8 7-3.582 7-8 7a9.06 9.06 0 0 1-2.347-.306c-.52.263-1.639.742-3.468 1.105z"/>
+              <path d="M5 8a1 1 0 1 1-2 0 1 1 0 0 1 2 0zm4 0a1 1 0 1 1-2 0 1 1 0 0 1 2 0zm4 0a1 1 0 1 1-2 0 1 1 0 0 1 2 0z"/>
+            </svg>
+            <div class="alert-text w-75">
+              <h6 class="text-truncate">Sisa Realisasi</h6>
+              <div class="row">
+                <div class="col-6">
+                  <span class="text-truncate">RM 13,743</span>
+                </div>
+                <div class="col-6">
+                  <span class="text-truncate">Rp 48.099.100</span>
+                </div>
               </div>
             </div>
           </div>
-        </div>
+        </a>
+
+        <a href="page-notification-details.html">
+          <div class="alert unread custom-alert-3 alert-primary" role="alert">
+            <svg width="24" height="24" viewBox="0 0 16 16" class="bi bi-chat-dots" fill="currentColor" xmlns="../../www.w3.org/2000/svg.html">
+              <path fill-rule="evenodd" d="M2.678 11.894a1 1 0 0 1 .287.801 10.97 10.97 0 0 1-.398 2c1.395-.323 2.247-.697 2.634-.893a1 1 0 0 1 .71-.074A8.06 8.06 0 0 0 8 14c3.996 0 7-2.807 7-6 0-3.192-3.004-6-7-6S1 4.808 1 8c0 1.468.617 2.83 1.678 3.894zm-.493 3.905a21.682 21.682 0 0 1-.713.129c-.2.032-.352-.176-.273-.362a9.68 9.68 0 0 0 .244-.637l.003-.01c.248-.72.45-1.548.524-2.319C.743 11.37 0 9.76 0 8c0-3.866 3.582-7 8-7s8 3.134 8 7-3.582 7-8 7a9.06 9.06 0 0 1-2.347-.306c-.52.263-1.639.742-3.468 1.105z"/>
+              <path d="M5 8a1 1 0 1 1-2 0 1 1 0 0 1 2 0zm4 0a1 1 0 1 1-2 0 1 1 0 0 1 2 0zm4 0a1 1 0 1 1-2 0 1 1 0 0 1 2 0z"/>
+            </svg>
+            <div class="alert-text w-75">
+              <h6 class="text-truncate">Jumlah Dana Dialihkan</h6>
+              <div class="row">
+                <div class="col-6">
+                  <span class="text-truncate">RM 13,743</span>
+                </div>
+                <div class="col-6">
+                  <span class="text-truncate">Rp 48.099.100</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </a>
       </div>
     </div>
     <div class="pb-3"></div>

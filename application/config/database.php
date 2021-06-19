@@ -78,8 +78,10 @@ $db['default'] = array(
 	'hostname' => 'localhost',
 	'username' => 'root',
 	'password' => '',
-	'database' => 'engineer_berau',
-
+	'database' => 'clc_keuangan',
+	// 'username' => 'triscom_keuangan',
+	// 'password' => '12345678910111213141516171819202122232425',
+	// 'database' => 'triscom_keuangan',
 	'dbdriver' => 'mysqli',
 	'dbprefix' => '',
 	'pconnect' => FALSE,

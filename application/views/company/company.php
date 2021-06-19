@@ -60,7 +60,7 @@
           <a href="<?= base_url('company/reporting') ?>" class="p-3 w-100"> Reporting </a>
         </li>
         <li class="chat-unread">
-          <a href="<?= base_url('company/kpi') ?>" class="p-3 w-100"> Kinerja Penilaian Indeks </a>
+          <a href="#<?= base_url('company/kpi') ?>" class="p-3 w-100"> Kinerja Penilaian Indeks </a>
         </li>
       </ul>
     </div>
