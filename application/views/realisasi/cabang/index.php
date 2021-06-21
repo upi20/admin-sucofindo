@@ -49,24 +49,105 @@
 
     <div class="page-content-wrapper py-3 elements-page">
         <div class="container">
-            <div class="elements-heading mb-3">
-                <nav aria-label="breadcrumb">
-                    <ol class="breadcrumb mb-0 py-2 px-3 rounded" id="list-breadcrumb">
-                        <li class="breadcrumb-item"><a href="<?= base_url() ?>">Dashboard</a></li>
-                        <li class="breadcrumb-item active" aria-current="page">Realisasi</li>
-                    </ol>
-                </nav>
-            </div>
             <div class="card">
-                <div class="card-body">
-                    <a class="page--item" href="<?= base_url("setting") ?>/danarab">Dana RAB<i class="fa fa-angle-right"></i></a>
-                    <a class="page--item" href="<?= base_url("setting") ?>/danasisa">Dana Sisa<i class="fa fa-angle-right"></i></a>
-                    <a class="page--item" href="<?= base_url("setting") ?>/danakurang">Dana Kurang<i class="fa fa-angle-right"></i></a>
+                <div class="">
+                    <div class="standard-tab">
+                        <ul class="nav rounded-lg mb-2 p-2 shadow-sm" id="affanTabs1" role="tablist">
+                            <li class="nav-item" role="presentation">
+                                <button class="btn active" id="bootstrap-tab" data-bs-toggle="tab" data-bs-target="#bootstrap" type="button" role="tab" aria-controls="bootstrap" aria-selected="true">Dana RAB</button>
+                            </li>
+                            <li class="nav-item" role="presentation">
+                                <button class="btn" id="bootstrap-tab" data-bs-toggle="tab" data-bs-target="#bootstrap" type="button" role="tab" aria-controls="bootstrap" aria-selected="true">Dana Sisa</button>
+                            </li>
+                            <li class="nav-item" role="presentation">
+                                <button class="btn" id="dark-tab" data-bs-toggle="tab" data-bs-target="#dark" type="button" role="tab" aria-controls="dark" aria-selected="false">Dana Kurang</button>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <ul class="ps-0 chat-user-list">
+                <li class="p-3 offline">
+                    <a class="d-flex" href="#">
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" value="" id="defaultCheckbox" style="width: 25px; height: 25px; margin-right: 10px;">
+                        </div>
+                        <div class="chat-user-info">
+                            <h6 class="text-truncate mb-0">3.1.1</h6>
+                            <div class="last-chat">
+                                <p class="text-truncate mb-0"> Pengadaan Buku Teks Siswa (Buku Pelajaran)</p>
+                            </div>
+                        </div>
+                    </a>
+                </li>
+                <li class="p-3 offline">
+                    <a class="d-flex" href="#">
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" value="" id="defaultCheckbox" style="width: 25px; height: 25px; margin-right: 10px;">
+                        </div>
+                        <div class="chat-user-info">
+                            <h6 class="text-truncate mb-0">3.1.1</h6>
+                            <div class="last-chat">
+                                <p class="text-truncate mb-0"> Pengadaan Buku Teks Siswa (Buku Pelajaran)</p>
+                            </div>
+                        </div>
+                    </a>
+                </li>
+                <li class="p-3 offline">
+                    <a class="d-flex" href="#">
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" value="" id="defaultCheckbox" style="width: 25px; height: 25px; margin-right: 10px;">
+                        </div>
+                        <div class="chat-user-info">
+                            <h6 class="text-truncate mb-0">3.1.1</h6>
+                            <div class="last-chat">
+                                <p class="text-truncate mb-0"> Pengadaan Buku Teks Siswa (Buku Pelajaran)</p>
+                            </div>
+                        </div>
+                    </a>
+                </li>
+                <li class="p-3 offline">
+                    <a class="d-flex" href="#">
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" value="" id="defaultCheckbox" style="width: 25px; height: 25px; margin-right: 10px;">
+                        </div>
+                        <div class="chat-user-info">
+                            <h6 class="text-truncate mb-0">3.1.1</h6>
+                            <div class="last-chat">
+                                <p class="text-truncate mb-0"> Pengadaan Buku Teks Siswa (Buku Pelajaran)</p>
+                            </div>
+                        </div>
+                    </a>
+                </li>
+            </ul>
+            <a class="btn btn-warning" href="#" style="margin-top: 10px;" data-bs-toggle="modal" data-bs-target="#fullscreenModal">
+                <svg width="18" height="18" viewBox="0 0 16 16" class="bi bi-bag-check" fill="currentColor" xmlns="../../www.w3.org/2000/svg.html">
+                    <path fill-rule="evenodd" d="M8 1a2.5 2.5 0 0 0-2.5 2.5V4h5v-.5A2.5 2.5 0 0 0 8 1zm3.5 3v-.5a3.5 3.5 0 1 0-7 0V4H1v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V4h-3.5zM2 5v9a1 1 0 0 0 1 1h10a1 1 0 0 0 1-1V5H2z"></path>
+                    <path fill-rule="evenodd" d="M10.854 8.146a.5.5 0 0 1 0 .708l-3 3a.5.5 0 0 1-.708 0l-1.5-1.5a.5.5 0 0 1 .708-.708L7.5 10.793l2.646-2.647a.5.5 0 0 1 .708 0z"></path>
+                </svg>
+                Belanja
+            </a>
+        </div>
+    </div>
+    <!-- Fullscreen Modal-->
+    <div class="modal fade" id="fullscreenModal" tabindex="-1" aria-labelledby="fullscreenModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-fullscreen-md-down">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h6 class="modal-title" id="fullscreenModalLabel">Modal Heading</h6>
+                    <button class="btn btn-close p-1 ms-auto" type="button" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolore excepturi magnam odio commodi. Quaerat, eaque. Neque eius, accusamus atque, asperiores iure dolor quibusdam eum pariatur libero eaque voluptate magnam? Ratione, dignissimos! Doloremque soluta totam libero recusandae qui nemo eius exercitationem quisquam. Voluptas.</p>
+                    <p class="mb-0">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Aliquam quasi illum eveniet quidem dolores consectetur tempore architecto quo quos, repudiandae porro quisquam esse sit pariatur nemo blanditiis expedita minus qui? </p>
+                </div>
+                <div class="modal-footer">
+                    <button class="btn btn-sm btn-secondary" type="button" data-bs-dismiss="modal">Close</button>
+                    <button class="btn btn-sm btn-success" type="button">Save</button>
                 </div>
             </div>
         </div>
     </div>
-
     <!-- Footer Nav-->
     <?php $this->load->view('element-footer'); ?>
 

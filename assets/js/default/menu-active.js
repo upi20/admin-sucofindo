@@ -8,3 +8,16 @@ my_footer.find("li").each(function () {
         menu.find("span").prop("style", "color: #a3a3a3;");
     }
 });
+
+
+function Loader(isLoading = true) {
+    if (isLoading) {
+        $("#loader").html(`<div class="preloader d-flex align-items-center justify-content-center" id="preloader">
+  <div class="spinner-grow text-primary" role="status">
+    <div class="sr-only">Loading...</div>
+  </div>
+</div>`)
+    } else {
+        $("#loader").empty();
+    }
+}

@@ -4,6 +4,7 @@
     <div class="sr-only">Loading...</div>
   </div>
 </div>
+<div id="loader"></div>
 <!-- Internet Connection Status-->
 <div class="internet-connection-status" id="internetStatus"></div>
 <!-- Header Area-->
