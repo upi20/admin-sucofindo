@@ -42,91 +42,66 @@
     <link rel="stylesheet" href="<?= base_url() ?>assets/style.css">
     <!-- Web App Manifest-->
     <link rel="manifest" href="<?= base_url() ?>assets/manifest.json">
+
+    <!-- pilih semua sticky -->
+    <style>
+        .sticky {
+            position: fixed;
+            top: 57px;
+            z-index: 909;
+            border-radius: 0.5rem;
+        }
+    </style>
 </head>
 
 <body>
     <?php $this->load->view('element-header'); ?>
-
-    <div class="page-content-wrapper py-3 elements-page">
+    <div class="page-content-wrapper pt-3 elements-page">
         <div class="container">
-            <div class="card">
-                <div class="">
-                    <div class="standard-tab">
-                        <ul class="nav rounded-lg mb-2 p-2 shadow-sm" id="affanTabs1" role="tablist">
-                            <li class="nav-item" role="presentation">
-                                <button class="btn active" id="bootstrap-tab" data-bs-toggle="tab" data-bs-target="#bootstrap" type="button" role="tab" aria-controls="bootstrap" aria-selected="true">Dana RAB</button>
-                            </li>
-                            <li class="nav-item" role="presentation">
-                                <button class="btn" id="bootstrap-tab" data-bs-toggle="tab" data-bs-target="#bootstrap" type="button" role="tab" aria-controls="bootstrap" aria-selected="true">Dana Sisa</button>
-                            </li>
-                            <li class="nav-item" role="presentation">
-                                <button class="btn" id="dark-tab" data-bs-toggle="tab" data-bs-target="#dark" type="button" role="tab" aria-controls="dark" aria-selected="false">Dana Kurang</button>
-                            </li>
-                        </ul>
-                    </div>
+            <div class="standard-tab bg-white mb-2" style="border-radius: .5rem;">
+                <ul class="nav rounded-lg mb-2 p-2 shadow-sm" id="affanTabs1" role="tablist">
+                    <li class="nav-item" role="presentation">
+                        <button class="btn active" id="bootstrap-tab" data-bs-toggle="tab" data-bs-target="#bootstrap" type="button" role="tab" aria-controls="bootstrap" aria-selected="true">Dana RAB</button>
+                    </li>
+                    <li class="nav-item" role="presentation">
+                        <button class="btn" id="bootstrap-tab" data-bs-toggle="tab" data-bs-target="#bootstrap" type="button" role="tab" aria-controls="bootstrap" aria-selected="true">Dana Sisa</button>
+                    </li>
+                    <li class="nav-item" role="presentation">
+                        <button class="btn" id="dark-tab" data-bs-toggle="tab" data-bs-target="#dark" type="button" role="tab" aria-controls="dark" aria-selected="false">Dana Kurang</button>
+                    </li>
+                </ul>
+            </div>
+            <div class="header" id="myHeader">
+                <div class="list-group">
+                    <label class="list-group-item d-flex" for="check-all">
+                        <input class="form-check-input me-2" id="check-all" type="checkbox" value=""> Pilih Semua
+                    </label>
                 </div>
             </div>
-            <ul class="ps-0 chat-user-list">
-                <li class="p-3 offline">
-                    <a class="d-flex" href="#">
-                        <div class="form-check">
-                            <input class="form-check-input" type="checkbox" value="" id="defaultCheckbox" style="width: 25px; height: 25px; margin-right: 10px;">
-                        </div>
+            <!-- List Checkbox -->
+            <form action="" id="form" method="POST">
+                <div class="list-group pb-5 pt-2">
+                    <label class="list-group-item d-flex" for="listCheckbox1">
+                        <input class="form-check-input me-2" id="listCheckbox1" type="checkbox" value="" style="width: 25px; height: 25px; margin-right: 10px;">
                         <div class="chat-user-info">
-                            <h6 class="text-truncate mb-0">3.1.1</h6>
+                            <h6 class="text-truncate mb-0" style="font-size: 1em;">3.1.1</h6>
                             <div class="last-chat">
-                                <p class="text-truncate mb-0"> Pengadaan Buku Teks Siswa (Buku Pelajaran)</p>
+                                <p class="text-truncate mb-0" style="font-size: 1em;"> Pengadaan Buku Teks Siswa (Buku Pelajaran)</p>
                             </div>
                         </div>
-                    </a>
-                </li>
-                <li class="p-3 offline">
-                    <a class="d-flex" href="#">
-                        <div class="form-check">
-                            <input class="form-check-input" type="checkbox" value="" id="defaultCheckbox" style="width: 25px; height: 25px; margin-right: 10px;">
-                        </div>
-                        <div class="chat-user-info">
-                            <h6 class="text-truncate mb-0">3.1.1</h6>
-                            <div class="last-chat">
-                                <p class="text-truncate mb-0"> Pengadaan Buku Teks Siswa (Buku Pelajaran)</p>
-                            </div>
-                        </div>
-                    </a>
-                </li>
-                <li class="p-3 offline">
-                    <a class="d-flex" href="#">
-                        <div class="form-check">
-                            <input class="form-check-input" type="checkbox" value="" id="defaultCheckbox" style="width: 25px; height: 25px; margin-right: 10px;">
-                        </div>
-                        <div class="chat-user-info">
-                            <h6 class="text-truncate mb-0">3.1.1</h6>
-                            <div class="last-chat">
-                                <p class="text-truncate mb-0"> Pengadaan Buku Teks Siswa (Buku Pelajaran)</p>
-                            </div>
-                        </div>
-                    </a>
-                </li>
-                <li class="p-3 offline">
-                    <a class="d-flex" href="#">
-                        <div class="form-check">
-                            <input class="form-check-input" type="checkbox" value="" id="defaultCheckbox" style="width: 25px; height: 25px; margin-right: 10px;">
-                        </div>
-                        <div class="chat-user-info">
-                            <h6 class="text-truncate mb-0">3.1.1</h6>
-                            <div class="last-chat">
-                                <p class="text-truncate mb-0"> Pengadaan Buku Teks Siswa (Buku Pelajaran)</p>
-                            </div>
-                        </div>
-                    </a>
-                </li>
-            </ul>
-            <a class="btn btn-warning" href="#" style="margin-top: 10px;" data-bs-toggle="modal" data-bs-target="#fullscreenModal">
-                <svg width="18" height="18" viewBox="0 0 16 16" class="bi bi-bag-check" fill="currentColor" xmlns="../../www.w3.org/2000/svg.html">
-                    <path fill-rule="evenodd" d="M8 1a2.5 2.5 0 0 0-2.5 2.5V4h5v-.5A2.5 2.5 0 0 0 8 1zm3.5 3v-.5a3.5 3.5 0 1 0-7 0V4H1v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V4h-3.5zM2 5v9a1 1 0 0 0 1 1h10a1 1 0 0 0 1-1V5H2z"></path>
-                    <path fill-rule="evenodd" d="M10.854 8.146a.5.5 0 0 1 0 .708l-3 3a.5.5 0 0 1-.708 0l-1.5-1.5a.5.5 0 0 1 .708-.708L7.5 10.793l2.646-2.647a.5.5 0 0 1 .708 0z"></path>
-                </svg>
-                Belanja
-            </a>
+                    </label>
+                </div>
+
+                <div class="d-flex flex-row-reverse">
+                    <button type="submit" class="btn btn-warning" href="#" style="position:fixed; bottom:75px; z-index:999">
+                        <svg width="18" height="18" viewBox="0 0 16 16" class="bi bi-bag-check" fill="currentColor" xmlns="../../www.w3.org/2000/svg.html">
+                            <path fill-rule="evenodd" d="M8 1a2.5 2.5 0 0 0-2.5 2.5V4h5v-.5A2.5 2.5 0 0 0 8 1zm3.5 3v-.5a3.5 3.5 0 1 0-7 0V4H1v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V4h-3.5zM2 5v9a1 1 0 0 0 1 1h10a1 1 0 0 0 1-1V5H2z"></path>
+                            <path fill-rule="evenodd" d="M10.854 8.146a.5.5 0 0 1 0 .708l-3 3a.5.5 0 0 1-.708 0l-1.5-1.5a.5.5 0 0 1 .708-.708L7.5 10.793l2.646-2.647a.5.5 0 0 1 .708 0z"></path>
+                        </svg>
+                        Belanja
+                    </button>
+                </div>
+            </form>
         </div>
     </div>
     <!-- Fullscreen Modal-->
@@ -173,6 +148,23 @@
     <script src="<?= base_url() ?>assets/js/pwa.js"></script>
     <script>
         const my_acctive_menu = "realisasi";
+
+        window.onscroll = function() {
+            myFunction()
+        };
+
+        var header = document.getElementById("myHeader");
+        var sticky = header.offsetTop;
+
+        function myFunction() {
+            if (window.pageYOffset > sticky) {
+                header.classList.add("sticky");
+                header.classList.add("shadow-sm");
+            } else {
+                header.classList.remove("sticky");
+                header.classList.remove("shadow-sm");
+            }
+        }
     </script>
     <script src="<?= base_url() ?>assets/js/default/menu-active.js"></script>
 </body>

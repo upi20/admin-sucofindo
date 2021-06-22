@@ -49,22 +49,18 @@
 
     <div class="page-content-wrapper py-3 elements-page">
         <div class="container">
-            <div class="card">
-                <div class="">
-                    <div class="standard-tab">
-                        <ul class="nav rounded-lg mb-2 p-2 shadow-sm" id="affanTabs1" role="tablist">
-                            <li class="nav-item" role="presentation">
-                                <a href="<?= base_url() ?>rab" class="btn">CLC</a>
-                            </li>
-                            <li class="nav-item" role="presentation">
-                                <a href="<?= base_url() ?>rab/preview" class="btn">Preview</a>
-                            </li>
-                            <li class="nav-item" role="presentation">
-                                <a href="<?= base_url() ?>rab/proposal" class="btn active">Proposal</a>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
+            <div class="standard-tab bg-white" style="border-radius: .5rem;">
+                <ul class="nav rounded-lg mb-2 p-2 shadow-sm" id="affanTabs1" role="tablist">
+                    <li class="nav-item" role="presentation">
+                        <a href="<?= base_url() ?>rab" class="btn">CLC</a>
+                    </li>
+                    <li class="nav-item" role="presentation">
+                        <a href="<?= base_url() ?>rab/preview" class="btn">Preview</a>
+                    </li>
+                    <li class="nav-item" role="presentation">
+                        <a href="<?= base_url() ?>rab/proposal" class="btn active">Proposal</a>
+                    </li>
+                </ul>
             </div>
             <a class="btn btn-creative btn-info my-2" href="<?= base_url() ?>rab/clc/tambah"><i class="fa fa-plus" aria-hidden="true"></i> Tambah</a>
             <button class="btn btn-creative btn-success my-2" data-toggle="modal" data-target="#importModal" onclick="$('#importModal').modal('toggle')"><i class="fa fa-upload" aria-hidden="true"></i> Import Excel </button>

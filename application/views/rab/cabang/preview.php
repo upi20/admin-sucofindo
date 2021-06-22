@@ -49,22 +49,18 @@
 
     <div class="page-content-wrapper py-3 elements-page">
         <div class="container">
-            <div class="card">
-                <div class="">
-                    <div class="standard-tab">
-                        <ul class="nav rounded-lg mb-2 p-2 shadow-sm" id="affanTabs1" role="tablist">
-                            <li class="nav-item" role="presentation">
-                                <a href="<?= base_url() ?>rab" class="btn ">CLC</a>
-                            </li>
-                            <li class="nav-item" role="presentation">
-                                <a href="<?= base_url() ?>rab/preview" class="btn active">Preview</a>
-                            </li>
-                            <li class="nav-item" role="presentation">
-                                <a href="<?= base_url() ?>rab/proposal" class="btn">Proposal</a>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
+            <div class="standard-tab bg-white" style="border-radius: .5rem;">
+                <ul class="nav rounded-lg mb-2 p-2 shadow-sm" id="affanTabs1" role="tablist">
+                    <li class="nav-item" role="presentation">
+                        <a href="<?= base_url() ?>rab" class="btn ">CLC</a>
+                    </li>
+                    <li class="nav-item" role="presentation">
+                        <a href="<?= base_url() ?>rab/preview" class="btn active">Preview</a>
+                    </li>
+                    <li class="nav-item" role="presentation">
+                        <a href="<?= base_url() ?>rab/proposal" class="btn">Proposal</a>
+                    </li>
+                </ul>
             </div>
             <?php if ($status == 0) : ?>
                 <a href="<?= base_url() ?>rab/preview/tindakan/<?= $npsn ?>/1" class="btn btn-primary btn-sm my-2" onclick="return confirm('Apakah anda yakin?');">
