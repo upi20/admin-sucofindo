@@ -29,7 +29,6 @@ class ClcModel extends Render_Model
         return $exe;
     }
 
-
     public function getDataDetail($id)
     {
         $exe                         = $this->db->get_where('rabs', ['id' => $id]);
@@ -111,7 +110,6 @@ class ClcModel extends Render_Model
         return $exe;
     }
 
-
     public function update($id, $id_cabang, $kode, $nama, $jumlah_1, $satuan_1, $jumlah_2, $satuan_2, $jumlah_3, $satuan_3, $jumlah_4, $satuan_4, $harga_ringgit, $harga_rupiah, $total_harga_ringgit, $total_harga_rupiah, $keterangan)
     {
         $data['id_cabang']            = $id_cabang;
@@ -160,7 +158,6 @@ class ClcModel extends Render_Model
 
         return $exe;
     }
-
 
     public function delete($id)
     {

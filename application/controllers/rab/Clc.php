@@ -15,6 +15,7 @@ class Clc extends Render_Controller
         $this->cabangdetail = $this->db->get_where('cabangs', ['user_id' => $this->session->userdata('data')['id']])->row_array();
         $this->id_cabang                 = $this->cabangdetail['id'];
     }
+
     public function index()
     {
 
@@ -263,7 +264,6 @@ class Clc extends Render_Controller
         return $result['kode'];
     }
 
-
     public function getKodeCabangKodeIsi3()
     {
         $kode_isi_2         = $this->input->post('kode_isi_2');
@@ -298,8 +298,6 @@ class Clc extends Render_Controller
         $this->output_json($get_kode_max);
     }
 
-
-
     private function lastMaxKode3($id_cabang, $kodePre)
     {
         $cabang = "";
@@ -321,7 +319,6 @@ class Clc extends Render_Controller
         return $result;
     }
 
-    // Insert data
     public function insert()
     {
         $id_cabang                         = $this->input->post('id_cabang');
@@ -510,5 +507,107 @@ class Clc extends Render_Controller
 
         // data
         // $this->load->view("templates/export/export-excel-rab-form-cabang", $data);
+    }
+
+    public function importFromExcel()
+    {
+
+        $id_cabang = $this->input->post('id_cabang1');
+        $fileName = $_FILES['file']['name'];
+
+        $config['upload_path'] = './assets/'; //path upload
+        $config['file_name'] = $fileName;  // nama file
+        $config['allowed_types'] = 'xls|xlsx'; //tipe file yang diperbolehkan
+        $config['max_size'] = 100000; // maksimal sizze
+
+        $this->load->library('upload'); //meload librari upload
+        $this->upload->initialize($config);
+
+        $file_location = "";
+
+        if (!$this->upload->do_upload('file')) {
+            echo json_encode(['code' => 1, 'message' => $this->upload->display_errors()]);
+
+            exit();
+        } else {
+            $file_location = array('upload_data' => $this->upload->data());
+            $file_location = $file_location['upload_data']['full_path'];
+        }
+
+
+        /** Load $inputFileName to a Spreadsheet Object  **/
+        $spreadsheet = \PhpOffice\PhpSpreadsheet\IOFactory::load($file_location);
+        $array_from_excel = $spreadsheet->getActiveSheet()->toArray();
+
+        // simpan
+        $result = true;
+        foreach ($array_from_excel as $data) {
+            $kode                             = $data[2];
+            $nama                             = $data[3];
+            $jumlah_1                         = $data[4];
+            $satuan_1                         = $data[5];
+            $jumlah_2                         = $data[6];
+            $satuan_2                         = $data[7];
+            $jumlah_3                         = $data[8];
+            $satuan_3                         = $data[9];
+            $jumlah_4                         = $data[10];
+            $satuan_4                         = $data[11];
+            $harga_ringgit                     = $data[12];
+            $harga_rupiah                     = $data[13];
+            $total_harga_ringgit             = $data[14];
+            $total_harga_rupiah                = $data[15];
+            $prioritas                        = $data[16];
+            $keterangan                     = $data[17];
+
+            $exe                             = $this->clc->updateFromExcel($id_cabang, $kode, $nama, $jumlah_1, $satuan_1, $jumlah_2, $satuan_2, $jumlah_3, $satuan_3, $jumlah_4, $satuan_4, $harga_ringgit, $harga_rupiah, $total_harga_ringgit, $total_harga_rupiah, $keterangan, $prioritas);
+            if (!$exe) {
+                $result = false;
+            }
+        }
+
+        $this->output_json(
+            [
+                'code' => $result ? 0 : 1,
+                'message' => $result ? "Rab berhasil diubah" : "File rusak atau tidak lengkap."
+            ]
+        );
+    }
+
+    public function getDataDetail()
+    {
+        $id                             = $this->input->post('id');
+
+        $exe                             = $this->clc->getDataDetail($id);
+
+        $this->output_json($exe);
+    }
+
+    public function update()
+    {
+        $id                             = $this->input->post('id_rabs');
+        $id_cabang                         = $this->input->post('id_cabang');
+        $kode                             = $this->input->post('kode');
+        $nama                             = $this->input->post('nama');
+        $jumlah_1                         = $this->input->post('jumlah_1');
+        $satuan_1                         = $this->input->post('satuan_1');
+        $jumlah_2                         = $this->input->post('jumlah_2');
+        $satuan_2                         = $this->input->post('satuan_2');
+        $jumlah_3                         = $this->input->post('jumlah_3');
+        $satuan_3                         = $this->input->post('satuan_3');
+        $jumlah_4                         = $this->input->post('jumlah_4');
+        $satuan_4                         = $this->input->post('satuan_4');
+        $harga_ringgit                     = $this->input->post('harga_ringgit');
+        $harga_rupiah                     = $this->input->post('harga_rupiah');
+        $total_harga_ringgit             = $this->input->post('total_harga_ringgit');
+        $total_harga_rupiah                = $this->input->post('total_harga_rupiah');
+        $keterangan                     = $this->input->post('keterangan');
+
+        $exe                             = $this->clc->update($id, $id_cabang, $kode, $nama, $jumlah_1, $satuan_1, $jumlah_2, $satuan_2, $jumlah_3, $satuan_3, $jumlah_4, $satuan_4, $harga_ringgit, $harga_rupiah, $total_harga_ringgit, $total_harga_rupiah, $keterangan);
+
+        $this->output_json(
+            [
+                'id'                 => $id
+            ]
+        );
     }
 }

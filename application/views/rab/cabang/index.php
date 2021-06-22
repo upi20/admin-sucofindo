@@ -67,56 +67,150 @@
                 </div>
             </div>
             <a class="btn btn-creative btn-info my-2" href="<?= base_url() ?>rab/clc/tambah"><i class="fa fa-plus" aria-hidden="true"></i> Tambah</a>
-            <button class="btn btn-creative btn-success my-2" data-toggle="modal" data-target="#importModal" onclick="$('#importModal').modal('toggle')"><i class="fa fa-upload" aria-hidden="true"></i> Import Excel </button>
+            <button class="btn btn-creative btn-success my-2" data-toggle="modal" data-target="#importModal" onclick="$('#importModal').modal('toggle')"><i class="fa fa-download" aria-hidden="true"></i> Import Excel </button>
             <a class="btn btn-creative btn-secondary my-2" href="<?= base_url() ?>rab/clc/export_excel?cabang=<?= $id_cabang ?>"><i class="fa fa-copy" aria-hidden="true"></i> Eksport Excel </a>
             <ul class="ps-0 chat-user-list  my-2 " id="list-body">
-
             </ul>
         </div>
     </div>
-
 
     <!-- Fullscreen Modal-->
     <div class="modal fade" id="modal" tabindex="-1" aria-labelledby="modalLabel" aria-hidden="true">
         <div class="modal-dialog modal-fullscreen-md-down">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h6 class="modal-title" id="modalLabel">Modal Heading</h6>
+                    <h6 class="modal-title" id="modalLabel">Detail RAB</h6>
                     <button class="btn btn-close p-1 ms-auto" type="button" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
-
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolore excepturi magnam odio commodi. Quaerat, eaque. Neque eius, accusamus atque, asperiores iure dolor quibusdam eum pariatur libero eaque voluptate magnam? Ratione, dignissimos! Doloremque soluta totam libero recusandae qui nemo eius exercitationem quisquam. Voluptas.</p>
-                    <p class="mb-0">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Aliquam quasi illum eveniet quidem dolores consectetur tempore architecto quo quos, repudiandae porro quisquam esse sit pariatur nemo blanditiis expedita minus qui? </p>
-
+                    <form action="#" method="POST" id="form">
+                        <div class="form-group">
+                            <label class="form-label" for="kode">Kode</label>
+                            <input type="text" class="form-control" id="kode" name="kode" required>
+                            <input type="hidden" class="form-control" id="id_cabang" name="id_cabang" required>
+                            <input type="hidden" class="form-control" id="id_rabs" name="id_rabs" required>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label" for="nama">Uraian</label>
+                            <input type="text" class="form-control" id="nama" name="nama" required>
+                        </div>
+                        <div class="form-group">
+                            <div class="row">
+                                <div class="col-6">
+                                    <label for="harga_ringgit" class="form-label">Harga (RM)</label>
+                                    <input class="form-control" type="number" step="any" name="harga_ringgit" id="harga_ringgit" required>
+                                    <input class="form-control" type="hidden" step="any" name="val_harga_ringgit" id="val_harga_ringgit">
+                                </div>
+                                <div class="col-6">
+                                    <label for="harga_rupiah" class="form-label">harga (Rp)</label>
+                                    <input class="form-control" type="number" step="any" name="harga_rupiah" id="harga_rupiah" readonly>
+                                    <input class="form-control" type="hidden" step="any" name="val_harga_rupiah" id="val_harga_rupiah" readonly>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="row">
+                                <div class="col-6">
+                                    <label for="jumlah_1" class="form-label">Jumlah</label>
+                                    <input class="form-control" type="number" name="jumlah_1" value="1" id="jumlah_1" required>
+                                </div>
+                                <div class="col-6">
+                                    <label for="satuan_1" class="form-label">Satuan</label>
+                                    <input class="form-control" type="text" name="satuan_1" id="satuan_1">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="row">
+                                <div class="col-6">
+                                    <label for="jumlah_2" class="form-label">Jumlah</label>
+                                    <input class="form-control" type="number" name="jumlah_2" value="1" id="jumlah_2" required>
+                                </div>
+                                <div class="col-6">
+                                    <label for="satuan_2" class="form-label">Satuan</label>
+                                    <input class="form-control" type="text" name="satuan_2" id="satuan_2">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="row">
+                                <div class="col-6">
+                                    <label for="jumlah_3" class="form-label">Jumlah</label>
+                                    <input class="form-control" type="number" name="jumlah_3" value="1" id="jumlah_3" required>
+                                </div>
+                                <div class="col-6">
+                                    <label for="satuan_3" class="form-label">Satuan</label>
+                                    <input class="form-control" type="text" name="satuan_3" id="satuan_3">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="row">
+                                <div class="col-6">
+                                    <label for="jumlah_4" class="form-label">Jumlah</label>
+                                    <input class="form-control" type="number" name="jumlah_4" value="1" id="jumlah_4" required>
+                                </div>
+                                <div class="col-6">
+                                    <label for="satuan_4" class="form-label">Satuan</label>
+                                    <input class="form-control" type="text" name="satuan_4" id="satuan_4">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="row">
+                                <div class="col-6">
+                                    <label for="total_harga_ringgit" class="form-label">Jumlah (RM)</label>
+                                    <input class="form-control" type="text" name="total_harga_ringgit" id="total_harga_ringgit" readonly>
+                                    <input class="form-control" type="hidden" name="val_total_harga_ringgit" id="val_total_harga_ringgit" readonly>
+                                </div>
+                                <div class="col-6">
+                                    <label for="total_harga_rupiah" class="form-label">Jumlah (Rp)</label>
+                                    <input class="form-control" type="text" name="total_harga_rupiah" id="total_harga_rupiah" readonly>
+                                    <input class="form-control" type="hidden" name="val_total_harga_rupiah" id="val_total_harga_rupiah" readonly>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label" for="keterangan">Keterangan</label>
+                            <input type="text" class="form-control" id="keterangan" name="keterangan" required>
+                        </div>
+                    </form>
                 </div>
                 <div class="modal-footer">
                     <button class="btn btn-sm btn-secondary" type="button" data-bs-dismiss="modal">Close</button>
-                    <button class="btn btn-sm btn-success" type="button">Save</button>
+                    <button class="btn btn-sm btn-success" type="submit" form="form" id="btn-submit-ubah">Ubah</button>
                 </div>
             </div>
         </div>
     </div>
 
-
     <!-- Static Backdrop Modal-->
     <div class="modal fade" id="importModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="importModalLabel" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered">
+
             <div class="modal-content">
                 <div class="modal-header">
                     <h6 class="modal-title" id="importModalLabel">Import RAB dari Excel</h6>
                     <button class="btn btn-close p-1 ms-auto" type="button" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
-                    <p class="mb-0">I will not close if you click outside me. Don't even try to press escape key.</p>
+                    <form id="form-import" enctype="multipart/form-data">
+                        <div class="form-group">
+                            <label class="form-label" for="file">File: xlsx atau xls</label>
+                            <input type="hidden" id="id_cabang1" name="id_cabang1" value="<?= $id_cabang ?>" class="form-control">
+                            <input type="file" class="form-control" id="file" name="file" accept="application/vnd.openxmlformats-officedocument.spreadsheetml.sheet, application/vnd.ms-excel" placeholder="" required />
+                        </div>
+
+                    </form>
                 </div>
                 <div class="modal-footer">
                     <button class="btn btn-sm btn-secondary" type="button" data-bs-dismiss="modal">Close</button>
-                    <button class="btn btn-sm btn-success" type="button">I Understood</button>
+                    <button class="btn btn-sm btn-success" type="submit" form="form-import">Import</button>
                 </div>
             </div>
         </div>
     </div>
+
     <!-- Footer Nav-->
     <?php $this->load->view('element-footer'); ?>
 
@@ -138,12 +232,15 @@
     <script src="<?= base_url() ?>assets/js/jquery.dataTables.min.js"></script>
     <script src="<?= base_url() ?>assets/js/default/active.js"></script>
     <script src="<?= base_url() ?>assets/js/default/clipboard.js"></script>
+
     <!-- PWA-->
     <script src="<?= base_url() ?>assets/js/pwa.js"></script>
     <script>
         const my_acctive_menu = "rab";
         const base_url = "<?= base_url() ?>";
+        const id_cabang = "<?= $id_cabang ?>";
     </script>
+    <script src="<?= base_url() ?>assets/js/default/toast.js"></script>
     <script src="<?= base_url() ?>assets/js/default/menu-active.js"></script>
     <script src="<?= base_url() ?>assets/page/rab/cabang/index.js"></script>
 </body>

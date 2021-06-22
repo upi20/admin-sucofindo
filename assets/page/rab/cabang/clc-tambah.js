@@ -1,5 +1,4 @@
 $(document).ready(function () {
-    console.log("okey");
     function format_ringgit(angka, format = 2, prefix) {
         angka = angka.toString().split('.');
         let suffix = angka[1] ? '.' + angka[1] : '';
