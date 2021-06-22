@@ -48,7 +48,7 @@ $(document).ready(function () {
             data.data.forEach(element => {
                 let status = '';
                 if (element.id_realisasi) {
-                    status = '<button class="btn btn-warning btn-sm m-1" type="button">Detail</button>';
+                    status = `<button class="btn btn-warning btn-sm m-1" onclick="detail(${element.id_realisasi})" type="button">Detail</button>`;
                 } else {
                     status = `<input class="form-check-input me-2 check" id="listCheckbox${element.id}" type="checkbox" value="" style="width: 25px; height: 25px; margin-right: 10px;"
                     data-id_rab="${element.id}"
@@ -309,4 +309,44 @@ function format_rupiah(angka, format = 2, prefix) {
     else {
         return 0
     }
+}
+
+function detail(id_rabs) {
+    $.ajax({
+        method: 'post',
+        url: base_url + 'realisasi/realisasi/getDetailRealisasi',
+        data: {
+            id: id_rabs
+        }
+    }).done((data) => {
+        $("#detail-modal-uraian").html(
+            `
+            <label class="list-group-item d-flex">
+            <div class="chat-user-info">
+            <h6 class="text-truncate mb-0" style="font-size: 1em;">${data.kode}</h6>
+            <div class="last-chat">
+            <p class="text-truncate mb-0" style="font-size: 1em;"> ${data.nama_aktifitas}</p>
+            </div>
+            </div>
+            </label>
+            `
+        )
+        $("#detail-belanja-text-total-ringgit").val('RM ' + format_ringgit(data.harga_ringgit))
+        $("#detail-belanja-text-total-rupiah").val('Rp ' + format_rupiah(data.harga_rupiah))
+        $("#detail-belanja-uraian").val(data.nama)
+        $("detail-belanja-keterangan").val(data.keterangan)
+
+        $("#detail-belanja-text-harga-ringgit").val('RM ' + format_ringgit(data.total_harga_ringgit))
+        $("#detail-belanja-text-harga-rupiah").val('Rp ' + format_rupiah(data.total_harga_rupiah))
+
+        $("#detail-belanja-tanggal").val(data.tanggal)
+
+        $('#detail-file').attr('src', base_url + 'gambar/' + data.gambar);
+        $('#detail-file').attr('alt', "| Foto rusak ");
+
+        $('#modalDetail').modal('toggle')
+    })
+        .fail(($data) => {
+            setToast('danger', 'danger', 'Failed', 'Data Gagal Mendapatkan data');
+        })
 }

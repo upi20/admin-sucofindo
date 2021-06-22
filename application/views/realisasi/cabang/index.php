@@ -109,7 +109,7 @@
                     <form action="#" method="post" enctype="multipart/form-data" id="form-belanja">
                         <div class="list-group pb-5 mb-4 pt-2" id="list-body">
                             <label>Uraian</label>
-                            <div id="modal-uraian">
+                            <div id="modal-uraian" class="mb-2">
 
                             </div>
 
@@ -156,7 +156,7 @@
                             </div>
                             <div class="form-group">
                                 <label for="belanja-tanggal" class="form-label">Tanggal</label>
-                                <input class="form-control" type="date" name="belanja-tanggal" id="belanja-tanggal" required>
+                                <input class="form-control" type="date" name="belanja-tanggal" id="belanja-tanggal" placeholder="Pilih tanggal" required>
                             </div>
                         </div>
                     </form>
@@ -164,6 +164,72 @@
                 <div class="modal-footer">
                     <button class="btn btn-sm btn-secondary" type="button" data-bs-dismiss="modal">Close</button>
                     <button class="btn btn-sm btn-success" type="submit" form="form-belanja">Submit</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Fullscreen Modal-->
+    <div class="modal fade" id="modalDetail" tabindex="-1" aria-labelledby="modalDetailLabel" aria-hidden="true">
+        <div class="modal-dialog modal-fullscreen-md-down">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h6 class="modal-title" id="modalDetailLabel">Detail Realisasi Belanja</h6>
+                    <button class="btn btn-close p-1 ms-auto" type="button" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="list-group pb-5 mb-4 pt-2" id="detail-list-body">
+                        <label>Uraian</label>
+                        <div id="detail-modal-uraian" class="mb-2">
+
+                        </div>
+
+                        <div class="form-group">
+                            <label for="detail-belanja-text-total-ringgit" class="form-label">Anggaran RAB (RM)</label>
+                            <input class="form-control" type="text" name="detail-belanja-text-total-ringgit" id="detail-belanja-text-total-ringgit" readonly>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="detail-belanja-text-total-rupiah" class="form-label">Anggaran RAB (Rp)</label>
+                            <input class="form-control" type="text" name="detail-belanja-text-total-rupiah" id="detail-belanja-text-total-rupiah" readonly>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="form-label" for="detail-belanja-uraian">Uraian</label>
+                            <textarea class="form-control" id="detail-belanja-uraian" name="detail-belanja-uraian" cols="3" rows="5" placeholder="Uraian" required readonly></textarea>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="form-label" for="detail-belanja-keterangan">Keterangan</label>
+                            <textarea class="form-control" id="detail-belanja-keterangan" name="detail-belanja-keterangan" cols="3" rows="5" placeholder="Keterangan" required readonly></textarea>
+                        </div>
+
+                        <div class="form-group">
+                            <div class="row">
+                                <div class="col-6">
+                                    <label for="detail-belanja-text-harga-ringgit" class="form-label">Harga real (RM)</label>
+                                    <input class="form-control" type="hidden" name="detail-belanja-harga-ringgit" id="detail-belanja-harga-ringgit" readonly>
+                                    <input class="form-control" type="text" name="detail-belanja-text-harga-ringgit" id="detail-belanja-text-harga-ringgit" required readonly>
+                                </div>
+                                <div class="col-6">
+                                    <label for="detail-belanja-text-harga-rupiah" class="form-label">Harga real (Rp)</label>
+                                    <input class="form-control" type="hidden" name="detail-belanja-harga-rupiah" id="detail-belanja-harga-rupiah" readonly>
+                                    <input class="form-control" type="text" name="detail-belanja-text-harga-rupiah" id="detail-belanja-text-harga-rupiah" required readonly>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="detail-belanja-tanggal" class="form-label">Tanggal</label>
+                            <input class="form-control" type="text" name="detail-belanja-tanggal" id="detail-belanja-tanggal" required readonly>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label" for="detail-file">Photo Resit / Nota / Kwitansi</label>
+                            <img src="..." class="img-fluid" alt="..." id="detail-file">
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button class="btn btn-sm btn-secondary" type="button" data-bs-dismiss="modal">Close</button>
                 </div>
             </div>
         </div>

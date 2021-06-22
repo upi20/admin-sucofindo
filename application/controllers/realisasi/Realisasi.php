@@ -146,4 +146,15 @@ class Realisasi extends Render_Controller
             ]
         );
     }
+
+    function getDetailRealisasi()
+    {
+        $id = $this->input->post('id');
+        $get = $this->db->select('a.*, b.kode, b.nama as nama_aktifitas, b.total_harga_ringgit, b.total_harga_rupiah, c.kode as npsn, b.kode as kode')
+            ->join('rabs b', 'b.id = a.id_rab')
+            ->join('cabangs c', 'b.id_cabang = c.id')
+            ->get_where('realisasis a', ['a.id' => $id])
+            ->row_array();
+        $this->output_json($get);
+    }
 }
