@@ -58,7 +58,7 @@
     <?php $this->load->view('element-header'); ?>
     <div class="page-content-wrapper pt-3 elements-page">
         <div class="container">
-            <div class="standard-tab bg-white mb-2" style="border-radius: .5rem;">
+            <div class="standard-tab bg-white mb-2" id="tab-main" style="border-radius: .5rem;">
                 <ul class="nav rounded-lg mb-2 p-2 shadow-sm" id="affanTabs1" role="tablist">
                     <li class="nav-item" role="presentation">
                         <button class="btn active" id="bootstrap-tab" data-bs-toggle="tab" data-bs-target="#bootstrap" type="button" role="tab" aria-controls="bootstrap" aria-selected="true">Dana RAB</button>
@@ -73,22 +73,15 @@
             </div>
             <div class="header" id="myHeader">
                 <div class="list-group">
-                    <label class="list-group-item d-flex" for="check-all">
-                        <input class="form-check-input me-2" id="check-all" type="checkbox" value=""> Pilih Semua
+                    <label class="list-group-item d-flex" id="check-all-container" for="check-all">
+                        <input class="form-check-input me-2" id="check-all" onchange="handleSetAllCheckbox(this)" type="checkbox" value=""> Pilih Semua
                     </label>
                 </div>
             </div>
             <!-- List Checkbox -->
             <form action="" id="form" method="POST">
-                <div class="list-group pb-5 pt-2">
-                    <label class="list-group-item d-flex" for="listCheckbox1">
-                        <input class="form-check-input me-2" id="listCheckbox1" type="checkbox" value="" style="width: 25px; height: 25px; margin-right: 10px;">
-                        <div class="chat-user-info">
-                            <h6 class="text-truncate mb-0" style="font-size: 1em;">3.1.1</h6>
-                            <div class="last-chat">
-                                <p class="text-truncate mb-0" style="font-size: 1em;"> Pengadaan Buku Teks Siswa (Buku Pelajaran)</p>
-                            </div>
-                        </div>
+                <div class="list-group pb-5 mb-4 pt-2" id="list-body">
+                    <label class="list-group-item d-flex" for="listCheckbox24">
                     </label>
                 </div>
 
@@ -109,16 +102,68 @@
         <div class="modal-dialog modal-fullscreen-md-down">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h6 class="modal-title" id="fullscreenModalLabel">Modal Heading</h6>
+                    <h6 class="modal-title" id="fullscreenModalLabel">Realisasi Belanja</h6>
                     <button class="btn btn-close p-1 ms-auto" type="button" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolore excepturi magnam odio commodi. Quaerat, eaque. Neque eius, accusamus atque, asperiores iure dolor quibusdam eum pariatur libero eaque voluptate magnam? Ratione, dignissimos! Doloremque soluta totam libero recusandae qui nemo eius exercitationem quisquam. Voluptas.</p>
-                    <p class="mb-0">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Aliquam quasi illum eveniet quidem dolores consectetur tempore architecto quo quos, repudiandae porro quisquam esse sit pariatur nemo blanditiis expedita minus qui? </p>
+                    <form action="#" method="post" enctype="multipart/form-data" id="form-belanja">
+                        <div class="list-group pb-5 mb-4 pt-2" id="list-body">
+                            <label>Uraian</label>
+                            <div id="modal-uraian">
+
+                            </div>
+
+                            <div class="form-group">
+                                <label for="belanja-text-total-ringgit" class="form-label">Anggaran RAB (RM)</label>
+                                <input class="form-control" type="text" name="belanja-text-total-ringgit" id="belanja-text-total-ringgit" readonly>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="belanja-text-total-rupiah" class="form-label">Anggaran RAB (Rp)</label>
+                                <input class="form-control" type="text" name="belanja-text-total-rupiah" id="belanja-text-total-rupiah" readonly>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="belanja-nama" class="form-label">Dibayarkan Kepada</label>
+                                <input class="form-control" type="text" name="belanja-nama" id="belanja-nama" required>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="belanja-nama1" class="form-label">Untuk</label>
+                                <input class="form-control" type="text" name="belanja-nama1" id="belanja-nama1" required>
+                            </div>
+                            <div class="form-group">
+                                <label class="form-label" for="belanja-keterangan">Keterangan</label>
+                                <textarea class="form-control" id="belanja-keterangan" name="belanja-keterangan" cols="3" rows="5" placeholder="Keterangan" required></textarea>
+                            </div>
+                            <div class="form-group">
+                                <div class="row">
+                                    <div class="col-6">
+                                        <label for="belanja-text-harga-ringgit" class="form-label">Harga real (RM)</label>
+                                        <input class="form-control" type="hidden" name="belanja-harga-ringgit" id="belanja-harga-ringgit" readonly>
+                                        <input class="form-control" type="text" name="belanja-text-harga-ringgit" id="belanja-text-harga-ringgit" required>
+                                    </div>
+                                    <div class="col-6">
+                                        <label for="belanja-text-harga-rupiah" class="form-label">Harga real (Rp)</label>
+                                        <input class="form-control" type="hidden" name="belanja-harga-rupiah" id="belanja-harga-rupiah" readonly>
+                                        <input class="form-control" type="text" name="belanja-text-harga-rupiah" id="belanja-text-harga-rupiah" required>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="form-label" for="file">Photo Resit / Nota / Kwitansi</label>
+                                <input type="file" class="form-control" id="file" name="file" accept="image/png, image/gif, image/jpg, image/jpeg" placeholder="" required />
+                            </div>
+                            <div class="form-group">
+                                <label for="belanja-tanggal" class="form-label">Tanggal</label>
+                                <input class="form-control" type="date" name="belanja-tanggal" id="belanja-tanggal" required>
+                            </div>
+                        </div>
+                    </form>
                 </div>
                 <div class="modal-footer">
                     <button class="btn btn-sm btn-secondary" type="button" data-bs-dismiss="modal">Close</button>
-                    <button class="btn btn-sm btn-success" type="button">Save</button>
+                    <button class="btn btn-sm btn-success" type="submit" form="form-belanja">Submit</button>
                 </div>
             </div>
         </div>
@@ -146,27 +191,15 @@
     <script src="<?= base_url() ?>assets/js/default/clipboard.js"></script>
     <!-- PWA-->
     <script src="<?= base_url() ?>assets/js/pwa.js"></script>
+    <script src="<?= base_url() ?>assets/js/default/toast.js"></script>
     <script>
         const my_acctive_menu = "realisasi";
-
-        window.onscroll = function() {
-            myFunction()
-        };
-
-        var header = document.getElementById("myHeader");
-        var sticky = header.offsetTop;
-
-        function myFunction() {
-            if (window.pageYOffset > sticky) {
-                header.classList.add("sticky");
-                header.classList.add("shadow-sm");
-            } else {
-                header.classList.remove("sticky");
-                header.classList.remove("shadow-sm");
-            }
-        }
+        const base_url = "<?= base_url() ?>";
+        const npsn = "<?= $npsn ?>";
+        const id_cabang = "<?= $id_cabang ?>";
     </script>
     <script src="<?= base_url() ?>assets/js/default/menu-active.js"></script>
+    <script src="<?= base_url() ?>assets/page/realisasi/cabang/index.js"></script>
 </body>
 
 </html>

@@ -14,7 +14,7 @@ $(document).ready(function () {
                 <li class="p-3 offline">
                 <a class="d-flex list-rabs" href="#" data-id="${element.id}" onclick="event.preventDefault();handleListRabs(this);">
                     <div class="chat-user-info">
-                        <h6 class="text-truncate mb-0">${element.kode}</h6>
+                        <h6 class="text-truncate mb-0">${element.kode} | (RM ${format_ringgit(element.total_harga_ringgit)})</h6>
                         <div class="last-chat">
                             <p class="text-truncate mb-0"> ${element.nama}</p>
                         </div>

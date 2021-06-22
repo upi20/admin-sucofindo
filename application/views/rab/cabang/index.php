@@ -198,7 +198,6 @@
                             <input type="hidden" id="id_cabang1" name="id_cabang1" value="<?= $id_cabang ?>" class="form-control">
                             <input type="file" class="form-control" id="file" name="file" accept="application/vnd.openxmlformats-officedocument.spreadsheetml.sheet, application/vnd.ms-excel" placeholder="" required />
                         </div>
-
                     </form>
                 </div>
                 <div class="modal-footer">

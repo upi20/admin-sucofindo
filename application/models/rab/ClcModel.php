@@ -267,7 +267,7 @@ class ClcModel extends Render_Model
             ];
         }
 
-        return $this->db->select("a.id_cabang, a.kode, a.nama, a.id")
+        return $this->db->select("a.id_cabang, a.kode, a.nama, a.id, a.total_harga_ringgit")
             ->from("rabs a")
             ->where($where)
             ->get()
