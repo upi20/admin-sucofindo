@@ -33,6 +33,13 @@
               <span>Laporan</span></a>
           </li>
         <?php endif ?>
+        <?php if ($this->session->userdata("data")['level'] == "Admin Sekolah") : ?>
+          <li data-name="hutang">
+            <a href="<?= base_url() ?>hutang">
+              <i class="fa fa-calendar fa-2x" sty aria-hidden="true"></i>
+              <span>Hutang</span></a>
+          </li>
+        <?php endif ?>
         <li data-name="setting">
           <a href="<?= base_url() ?>setting/profile">
             <i class="fa fa-user fa-2x" sty aria-hidden="true"></i>

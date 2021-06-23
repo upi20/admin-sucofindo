@@ -87,6 +87,13 @@
         <i class="fa fa-usd" aria-hidden="true"></i>
         &nbsp; Realisasi</a>
     </li>
+    <?php if ($this->session->userdata("data")['level'] == "Admin Sekolah") : ?>
+      <li>
+        <a href="<?= base_url() ?>hutang">
+          <i class="fa fa-calendar" aria-hidden="true"></i>
+          &nbsp; Hutang</a>
+      </li>
+    <?php endif ?>
     <?php if ($this->session->userdata("data")['level'] == "Super Admin") : ?>
       <li>
         <a href="<?= base_url() ?>laporan">

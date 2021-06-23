@@ -12,7 +12,7 @@ $(document).ready(function () {
             data.forEach(element => {
                 body.append(`
                 <li class="p-3 offline">
-                <a class="d-flex list-rabs" href="#" data-id="${element.id}" onclick="event.preventDefault();handleListRabs(this);">
+                <a class="d-flex list-rabs w-100" href="#" data-id="${element.id}" onclick="event.preventDefault();handleListRabs(this);">
                     <div class="chat-user-info">
                         <h6 class="text-truncate mb-0">${element.kode} | (RM ${format_ringgit(element.total_harga_ringgit)})</h6>
                         <div class="last-chat">
