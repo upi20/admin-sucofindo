@@ -112,7 +112,7 @@ $(document).ready(function () {
                 html_uraian += `
                     <label class="list-group-item d-flex">
                     <div class="chat-user-info">
-                    <h6 class="text-truncate mb-0" style="font-size: 1em;">${this.dataset.kode} | (RM ${format_ringgit(jml_ringgit)})</h6>
+                    <h6 class="text-truncate mb-0" style="font-size: 1em;">${this.dataset.kode} | (RM ${format_ringgit(this.dataset.ringgit)})</h6>
                     <div class="last-chat">
                     <p class="text-truncate mb-0" style="font-size: 1em;"> ${this.dataset.uraian}</p>
                     </div>

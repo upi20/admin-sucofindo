@@ -10,7 +10,7 @@
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black">
     <!-- Title-->
-    <title>Realisasi | JOMLASIELSI</title>
+    <title>Dana Kurang | JOMLASIELSI</title>
     <!-- Favicon-->
     <link rel="apple-touch-icon" sizes="57x57" href="<?= base_url() ?>assets/favicon/bg-white/apple-icon-57x57.png">
     <link rel="apple-touch-icon" sizes="60x60" href="<?= base_url() ?>assets/favicon/bg-white/apple-icon-60x60.png">
@@ -61,13 +61,13 @@
             <div class="standard-tab bg-white mb-2" id="tab-main" style="border-radius: .5rem;">
                 <ul class="nav rounded-lg mb-2 p-2 shadow-sm" id="affanTabs1" role="tablist">
                     <li class="nav-item" role="presentation">
-                        <a href="<?= base_url() ?>realisasi" class="btn  active">Dana RAB</a>
+                        <a href="<?= base_url() ?>realisasi" class="btn ">Dana RAB</a>
                     </li>
                     <li class="nav-item" role="presentation">
                         <a href="<?= base_url() ?>realisasi/danasisa" class="btn">Dana Sisa</a>
                     </li>
                     <li class="nav-item" role="presentation">
-                        <a href="<?= base_url() ?>realisasi/danakurang" class="btn">Dana Kurang</a>
+                        <a href="<?= base_url() ?>realisasi/danakurang" class="btn active">Dana Kurang</a>
                     </li>
                 </ul>
             </div>
@@ -80,7 +80,7 @@
             </div>
             <!-- List Checkbox -->
             <form action="" id="form" method="POST">
-                <div class="list-group pt-2" id="list-body">
+                <div class="list-group pb-5 mb-4 pt-2" id="list-body">
                     <label class="list-group-item d-flex" for="listCheckbox24">
                     </label>
                 </div>
@@ -97,6 +97,7 @@
             </form>
         </div>
     </div>
+
     <!-- Fullscreen Modal-->
     <div class="modal fade" id="fullscreenModal" tabindex="-1" aria-labelledby="fullscreenModalLabel" aria-hidden="true">
         <div class="modal-dialog modal-fullscreen-md-down">
@@ -265,7 +266,7 @@
         const id_cabang = "<?= $id_cabang ?>";
     </script>
     <script src="<?= base_url() ?>assets/js/default/menu-active.js"></script>
-    <script src="<?= base_url() ?>assets/page/realisasi/cabang/index.js"></script>
+    <script src="<?= base_url() ?>assets/page/realisasi/cabang/danakurang.js"></script>
 </body>
 
 </html>

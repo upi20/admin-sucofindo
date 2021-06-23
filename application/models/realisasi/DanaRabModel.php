@@ -37,53 +37,6 @@ class DanaRabModel extends Render_Model
             ->get();
     }
 
-
-    public function getAllDataDanaSisa($show = null, $start = null, $cari = null, $npsn = null)
-    {
-        if ($this->session->userdata('data')['level'] == 'Super Admin') {
-            // if ($npsn == null) {
-            // 	$exe = $this->db->select(' * , b.kode as npsn, b.nama as nama_cabang, a.nama as nama_aktifitas, a.status as statuss, a.kode as kodes,z.id as id_realisasi, a.id, z.sisa_ringgit, z.sisa_rupiah')
-            // 		->from(' rabs  a')
-            // 		->join(' realisasis z ', ' a.id = z.id_rab ', ' left ')
-            // 		->join(' cabangs b', ' a.id_cabang = b.id ', ' left ')
-            // 		->join(' aktifitas c', ' a.id_aktifitas = c.id ', ' left ')
-            // 		// ->where('z.id is NOT NULL')
-            // 		->where(' z.sisa_ringgit > 0')
-            // 		->where(' a.status ', 2)
-            // 		->order_by('b.kode', 'asc')
-            // 		->order_by('a.kode', 'asc')
-            // 		->get();
-            if ($npsn == null) {
-                $exe = $this->db->query("SELECT FORMAT(sum(a.sisa_ringgit),2) as sisa_ringgit, FORMAT(sum(a.sisa_rupiah),0) as sisa_rupiah, a.id_cabang, b.kode, b.user_id, b.nama FROM realisasis a join cabangs b on a.id_cabang = b.id WHERE a.sisa_ringgit > 0 GROUP BY a.id_cabang");
-            } else {
-                $exe = $this->getAllDataDanaSisaAction($npsn);
-            }
-        } else {
-            $exe = $this->getAllDataDanaSisaAction($npsn);
-        }
-
-        return $exe;
-    }
-
-    private function getAllDataDanaSisaAction($npsn)
-    {
-        $cek = $this->db->select('a.status')->join('cabangs b', 'a.id_cabang = b.id')->limit(1)->get_where('rabs a', ['b.kode' => $npsn])->row_array();
-        if ($cek['status'] == 0 or $cek['status'] == 1 or $cek['status'] == 3) {
-            $status = 2;
-        } else {
-            $status = $cek['status'];
-        }
-        return $this->db->select(' * , b.kode as npsn, b.nama as nama_cabang, a.nama as nama_aktifitas, a.status as statuss, a.kode as kodes,z.id as id_realisasi, a.id, z.sisa_ringgit, z.sisa_rupiah')
-            ->from(' rabs  a')
-            ->join(' realisasis z ', ' a.id = z.id_rab ', ' left ')
-            ->join(' cabangs b', ' a.id_cabang = b.id ', ' left ')
-            ->join(' aktifitas c', ' a.id_aktifitas = c.id ', ' left ')
-            ->where(' b.kode ', $npsn)
-            ->where(' z.sisa_ringgit > 0')
-            ->where(' a.status ', $status)
-            ->get();
-    }
-
     public function getDataKodeNPSN($id_cabang = null)
     {
         $exe = $this->db->select('a.kode, a.nama')->get_where('rabs a', ['a.id_cabang' => $id_cabang])->result_array();
@@ -195,6 +148,6 @@ class DanaRabModel extends Render_Model
     // dana kurang ajax
     public function superAdminDanaKurang()
     {
-        return $this->db->query("SELECT FORMAT(sum(a.sisa_ringgit),2) as sisa_ringgit, FORMAT(sum(a.sisa_rupiah),0) as sisa_rupiah, a.id_cabang, b.kode, b.user_id, b.nama FROM realisasis a join cabangs b on a.id_cabang = b.id WHERE a.sisa_ringgit < 0 GROUP BY a.id_cabang");
+        return $this->db->query("SELECT sum(a.sisa_ringgit) as sisa_ringgit, sum(a.sisa_rupiah) as sisa_rupiah, a.id_cabang, b.kode, b.user_id, b.nama FROM realisasis a join cabangs b on a.id_cabang = b.id WHERE a.sisa_ringgit < 0 GROUP BY a.id_cabang");
     }
 }

@@ -11,6 +11,7 @@ class Realisasi extends Render_Controller
         $this->id_cabang                 = $this->cabangdetail['id'];
         $this->load->model("realisasi/DanaRabModel", 'realisasi');
     }
+
     public function index()
     {
 
