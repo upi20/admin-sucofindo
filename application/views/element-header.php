@@ -76,9 +76,9 @@
       </li>
     <?php endif ?>
     <li>
-      <a href="<?= base_url() ?>setting">
-        <i class="fa fa-cogs" aria-hidden="true"></i>
-        &nbsp; Pengaturan</a>
+      <a href="<?= base_url() ?>setting/profile">
+        <i class="fa fa-user" aria-hidden="true"></i>
+        &nbsp; Profile</a>
     </li>
     <li>
       <a href="<?= base_url() ?>login/logout">

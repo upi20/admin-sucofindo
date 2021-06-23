@@ -33,6 +33,19 @@ function handleSetAllCheckbox(data) {
     $(".check").prop("checked", data.checked);
     setBtnUbah();
 }
+const cekvalidasi = (id, val = "", focus = false) => {
+    const valid = $(`#${id}`);
+    let isValid = true;
+
+    if (valid.val() == val) {
+        isValid = false;
+        valid.removeClass("is-valid").addClass("is-invalid");
+        if (focus) valid.focus();
+    } else {
+        valid.removeClass("is-invalid").addClass("is-valid");
+    }
+    return isValid;
+}
 
 $(document).ready(function () {
     function dynamic() {
@@ -72,7 +85,7 @@ $(document).ready(function () {
             });
         })
             .fail(($xhr) => {
-                $.failMessage('Gagal ditambahkan.', 'Data RAB')
+                setToast('danger', 'danger', 'Failed', 'Data gagal mendapatkan data');
             }).
             always(() => {
                 Loader(false);
@@ -167,7 +180,8 @@ $(document).ready(function () {
     $('#form-belanja').submit(function (evt) {
         evt.preventDefault();
 
-        let validasi = true;
+        let validasi = cekvalidasi("val-kode", "", true) && cekvalidasi("keterangan", "", true);
+
         if (validasi) {
             $.ajax({
                 type: 'POST',
@@ -249,6 +263,8 @@ $(document).ready(function () {
                     $('#sisa-total-rupiah').val("");
                     $('#jumlah-sisa-total-rupiah').val("");
                 }
+
+                cekvalidasi("val-kode");
             }
         })
     })

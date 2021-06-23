@@ -34,6 +34,20 @@ function handleSetAllCheckbox(data) {
     setBtnUbah();
 }
 
+const cekvalidasi = (id, val = "", focus = false) => {
+    const valid = $(`#${id}`);
+    let isValid = true;
+
+    if (valid.val() == val) {
+        isValid = false;
+        valid.removeClass("is-valid").addClass("is-invalid");
+        if (focus) valid.focus();
+    } else {
+        valid.removeClass("is-invalid").addClass("is-valid");
+    }
+    return isValid;
+}
+
 $(document).ready(function () {
     function dynamic() {
         Loader();
@@ -71,7 +85,7 @@ $(document).ready(function () {
             });
         })
             .fail(($xhr) => {
-                $.failMessage('Gagal ditambahkan.', 'Data RAB')
+                setToast('danger', 'danger', 'Failed', 'Data gagal mendapatkan data');
             }).
             always(() => {
                 Loader(false);
@@ -165,8 +179,21 @@ $(document).ready(function () {
 
     $('#form-belanja').submit(function (evt) {
         evt.preventDefault();
-
         let validasi = true;
+        const kategori = $("#pilihan-tambahan").val();
+        // validasi rab
+        if (kategori == 'rab') {
+            validasi = cekvalidasi("val-kode");
+        }
+        // validasi non rab
+        else {
+            validasi = cekvalidasi("id_aktifitas", "", true);
+            validasi = validasi && cekvalidasi("kode", "", true);
+            validasi = validasi && cekvalidasi("nama", "", true);
+        }
+
+        validasi = validasi && cekvalidasi("keterangan", "", true);
+
         if (validasi) {
             $.ajax({
                 type: 'POST',
@@ -180,7 +207,7 @@ $(document).ready(function () {
                         'ringgit': jumlah_ringgit_send,
                         'rupiah': jumlah_rupiah_send,
                         'keterangan': $('#keterangan').val(),
-                        'kategori': $("#pilihan-tambahan").val(),
+                        'kategori': kategori,
                         'id_cabang': $("#id_cabang").val(),
                         'id_rab_to': $('#id_rab').val(),
                         "non_rab": {
@@ -270,6 +297,8 @@ $(document).ready(function () {
                     $('#sisa-total-rupiah').val("");
                     $('#jumlah-sisa-total-rupiah').val("");
                 }
+
+                cekvalidasi("val-kode");
             }
         })
     })
@@ -309,7 +338,7 @@ $(document).ready(function () {
                 $('#kode_isi_1').empty();
                 $('#kode_isi_2').empty();
             })
-
+            cekvalidasi("id_aktifitas", "", true);
         }).fail(($xhr) => {
             console.log($xhr)
         })

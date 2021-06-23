@@ -34,9 +34,9 @@
           </li>
         <?php endif ?>
         <li data-name="setting">
-          <a href="<?= base_url() ?>setting">
-            <i class="fa fa-cogs fa-2x" sty aria-hidden="true"></i>
-            <span>Pengaturan</span></a>
+          <a href="<?= base_url() ?>setting/profile">
+            <i class="fa fa-user fa-2x" sty aria-hidden="true"></i>
+            <span>Profile</span></a>
         </li>
       </ul>
     </div>

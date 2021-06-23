@@ -1,7 +1,7 @@
 <?php
 defined('BASEPATH') or exit('No direct script access allowed');
 
-class Setting extends Render_Controller
+class Profile extends Render_Controller
 {
     function __construct()
     {
@@ -9,19 +9,8 @@ class Setting extends Render_Controller
         $this->sesion->cek_session();
         $this->load->model("setting/ProfileModel", 'profile');
     }
+
     public function index()
-    {
-
-        if ($this->session->userdata("data")['level'] == "Super Admin") {
-            $this->load->view("setting/admin/index");
-        } else if ($this->session->userdata("data")['level'] == "Admin Sekolah") {
-            $this->load->view("setting/cabang/index");
-        } else {
-            redirect("login");
-        }
-    }
-
-    public function profile()
     {
         if ($this->session->userdata("data")['level'] == "Admin Sekolah") {
             $data['user_id'] = $this->session->userdata('data')['id'];
@@ -31,9 +20,23 @@ class Setting extends Render_Controller
         }
     }
 
-    public function ajax_profile()
+    public function ajax_data()
     {
         $id_user = $this->input->post("user_id");
         $this->output_json($this->profile->getDataUser($id_user));
+    }
+
+    public function update()
+    {
+        $data = [];
+        $id = $this->input->post("id");
+        foreach ($this->input->post() as $k => $val) {
+            if ($k != 'id') {
+                $data[$k] = $val;
+            }
+        }
+
+        $result = $this->profile->updateDataCabang($id, $data);
+        $this->output_json($result);
     }
 }

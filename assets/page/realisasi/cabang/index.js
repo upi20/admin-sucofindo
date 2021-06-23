@@ -75,7 +75,7 @@ $(document).ready(function () {
             });
         })
             .fail(($xhr) => {
-                $.failMessage('Gagal ditambahkan.', 'Data RAB')
+                setToast('danger', 'danger', 'Failed', 'Data gagal mendapatkan data');
             }).
             always(() => {
                 Loader(false);

@@ -99,7 +99,7 @@
         <div class="modal-dialog modal-fullscreen-md-down">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h6 class="modal-title" id="fullscreenModalLabel">Realisasi Belanja</h6>
+                    <h6 class="modal-title" id="fullscreenModalLabel">Realisasi Dana Kurang</h6>
                     <button class="btn btn-close p-1 ms-auto" type="button" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
@@ -109,11 +109,11 @@
                             <div id="modal-uraian" class="mb-2">
 
                             </div>
-                            <div class="form-group">
+                            <div class="form-group" style="display: none;">
                                 <label class="form-label" for="pilihan-tambahan">Kategori Pengalihan</label>
                                 <select class="form-select" id="pilihan-tambahan" name="pilihan-tambahan" aria-label="Kategori Pemilihan">
                                     <option value="rab"> RAB</option>
-                                    <option value="non-rab"> Non-RAB</option>
+                                    <!-- <option value="non-rab"> Non-RAB</option> -->
                                 </select>
                             </div>
 
@@ -127,6 +127,9 @@
                                             <option value="<?= $key['kode'] ?>"><?= $key['kode'] ?> <?= $key['nama'] ?></option>
                                         <?php endforeach ?>
                                     </select>
+                                    <div class="invalid-feedback">
+                                        Kode Standar wajib diisi
+                                    </div>
                                 </div>
 
                                 <!-- total -->
@@ -285,6 +288,9 @@
                         <div class="form-group">
                             <label for="keterangan"> Keterangan</label>
                             <textarea class="form-control" id="keterangan" name="keterangan"></textarea>
+                            <div class="invalid-feedback">
+                                Keterangan wajib di isi
+                            </div>
                         </div>
                     </form>
                 </div>
