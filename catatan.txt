@@ -1,3 +1,5 @@
 validasi non-rab kode ,uraian, keternagan
 
 validasi rab kode, keterangan
+
+ubah menu pengaturan jadi profile di admin sekolah

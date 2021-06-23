@@ -67,7 +67,7 @@
                         <a href="<?= base_url() ?>realisasi/danasisa" class="btn">Dana Sisa</a>
                     </li>
                     <li class="nav-item" role="presentation">
-                        <a href="<?= base_url() ?>realisasi/danakurang" class="btn active">Dana Kurang</a>
+                        <a href="<?= base_url() ?>realisasi/danakurang" class="btn  active">Dana Kurang</a>
                     </li>
                 </ul>
             </div>
@@ -87,17 +87,13 @@
 
                 <div class="d-flex flex-row-reverse">
                     <button type="submit" class="btn btn-warning" href="#" style="position:fixed; bottom:75px; z-index:999">
-                        <svg width="18" height="18" viewBox="0 0 16 16" class="bi bi-bag-check" fill="currentColor" xmlns="../../www.w3.org/2000/svg.html">
-                            <path fill-rule="evenodd" d="M8 1a2.5 2.5 0 0 0-2.5 2.5V4h5v-.5A2.5 2.5 0 0 0 8 1zm3.5 3v-.5a3.5 3.5 0 1 0-7 0V4H1v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V4h-3.5zM2 5v9a1 1 0 0 0 1 1h10a1 1 0 0 0 1-1V5H2z"></path>
-                            <path fill-rule="evenodd" d="M10.854 8.146a.5.5 0 0 1 0 .708l-3 3a.5.5 0 0 1-.708 0l-1.5-1.5a.5.5 0 0 1 .708-.708L7.5 10.793l2.646-2.647a.5.5 0 0 1 .708 0z"></path>
-                        </svg>
-                        Belanja
+                        <i class="fa fa-exchange" aria-hidden="true"> </i>
+                        Subsidi Dana
                     </button>
                 </div>
             </form>
         </div>
     </div>
-
     <!-- Fullscreen Modal-->
     <div class="modal fade" id="fullscreenModal" tabindex="-1" aria-labelledby="fullscreenModalLabel" aria-hidden="true">
         <div class="modal-dialog modal-fullscreen-md-down">
@@ -108,57 +104,187 @@
                 </div>
                 <div class="modal-body">
                     <form action="#" method="post" enctype="multipart/form-data" id="form-belanja">
-                        <div class="list-group pb-5 mb-4 pt-2" id="list-body">
+                        <div class="list-group pt-2" id="list-body">
                             <label>Uraian</label>
                             <div id="modal-uraian" class="mb-2">
 
                             </div>
-
                             <div class="form-group">
-                                <label for="belanja-text-total-ringgit" class="form-label">Anggaran RAB (RM)</label>
-                                <input class="form-control" type="text" name="belanja-text-total-ringgit" id="belanja-text-total-ringgit" readonly>
+                                <label class="form-label" for="pilihan-tambahan">Kategori Pengalihan</label>
+                                <select class="form-select" id="pilihan-tambahan" name="pilihan-tambahan" aria-label="Kategori Pemilihan">
+                                    <option value="rab"> RAB</option>
+                                    <option value="non-rab"> Non-RAB</option>
+                                </select>
                             </div>
 
-                            <div class="form-group">
-                                <label for="belanja-text-total-rupiah" class="form-label">Anggaran RAB (Rp)</label>
-                                <input class="form-control" type="text" name="belanja-text-total-rupiah" id="belanja-text-total-rupiah" readonly>
-                            </div>
+                            <div id="form-rab">
+                                <hr>
+                                <div class="form-group">
+                                    <label for="val-kode"> Kode Standar</label>
+                                    <select id="val-kode" class="form-select" name="val-kode">
+                                        <option value="">Pilih Kode</option>
+                                        <?php foreach ($kodeNPSN as $key) : ?>
+                                            <option value="<?= $key['kode'] ?>"><?= $key['kode'] ?> <?= $key['nama'] ?></option>
+                                        <?php endforeach ?>
+                                    </select>
+                                </div>
 
-                            <div class="form-group">
-                                <label for="belanja-nama" class="form-label">Dibayarkan Kepada</label>
-                                <input class="form-control" type="text" name="belanja-nama" id="belanja-nama" required>
-                            </div>
+                                <!-- total -->
+                                <div class="form-group">
+                                    <label for="jumlah-total-ringgit"> Total Ringgit</label>
+                                    <input type="hidden" name="total_ringgit" id="total-ringgit">
+                                    <input type="text" class="form-control" id="jumlah-total-ringgit" readonly="" />
+                                </div>
 
+                                <div class="form-group">
+                                    <label for="jumlah-total-rupiah"> Total Rupiah</label>
+                                    <input type="hidden" name="total_rupiah" id="total-rupiah">
+                                    <input type="text" class="form-control" id="jumlah-total-rupiah" readonly="" />
+                                </div>
+
+                                <hr>
+                                <!-- dana sisa -->
+                                <div class="form-group">
+                                    <label for="jumlah-sisa-ringgit"> Jumlah Dana Sisa Ringgit</label>
+                                    <input type="hidden" name="sisa_ringgit" id="sisa-ringgit">
+                                    <input type="text" class="form-control" id="jumlah-sisa-ringgit" name="jumlah_sisa_ringgit" readonly>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="jumlah-sisa-rupiah"> Jumlah Dana Sisa Rupiah</label>
+                                    <input type="hidden" name="sisa_rupiah" id="sisa-rupiah">
+                                    <input type="text" class="form-control" id="jumlah-sisa-rupiah" name="jumlah_sisa_rupiah" readonly="">
+                                </div>
+
+                                <hr>
+                                <!-- total + sisa -->
+                                <div class="form-group">
+                                    <label for="jumlah-sisa-total-ringgit"> Jumlah Dana Sisa Total Ringgit Ditambahkan</label>
+                                    <input type="hidden" name="sisa_total_ringgit" id="sisa-total-ringgit">
+                                    <input type="text" class="form-control" id="jumlah-sisa-total-ringgit" name="jumlah-sisa-total-ringgit" readonly="">
+                                </div>
+                                <div class="form-group">
+                                    <label for="jumlah-sisa-total-rupiah"> Jumlah Dana Sisa Total Rupiah Ditambahkan</label>
+                                    <input type="hidden" name="sisa_total_rupiah" id="sisa-total-rupiah">
+                                    <input type="hidden" name="id_rab" id="id_rab">
+                                    <input type="text" class="form-control" id="jumlah-sisa-total-rupiah" name="jumlah-sisa-total-rupiah" readonly="">
+                                </div>
+                            </div>
+                        </div>
+                        <div id="form-non-rab">
                             <div class="form-group">
-                                <label for="belanja-nama1" class="form-label">Untuk</label>
-                                <input class="form-control" type="text" name="belanja-nama1" id="belanja-nama1" required>
+                                <input type="hidden" name="id_cabang" id="id_cabang" value="<?= $id_cabang ?>">
+                                <label class="form-label" for="id_aktifitas">Kode Standar</label>
+                                <select name="id_aktifitas" id="id_aktifitas" class="form-select"></select>
                             </div>
                             <div class="form-group">
-                                <label class="form-label" for="belanja-keterangan">Keterangan</label>
-                                <textarea class="form-control" id="belanja-keterangan" name="belanja-keterangan" cols="3" rows="5" placeholder="Keterangan" required></textarea>
+                                <label class="form-label" for="id_aktifitas_sub">Sub Standar</label>
+                                <select name="id_aktifitas_sub" id="id_aktifitas_sub" class="form-select"></select>
+
+                            </div>
+                            <div class="form-group">
+                                <label class="form-label" for="id_aktifitas_cabang">Sub Standar</label>
+                                <select name="id_aktifitas_cabang" id="id_aktifitas_cabang" class="form-select"></select>
+                            </div>
+                            <div class="form-group">
+                                <label class="form-label" for="kode_isi_1">Sub Standar</label>
+                                <select name="kode_isi_1" id="kode_isi_1" class="form-select"></select>
+
+                            </div>
+                            <div class="form-group">
+                                <label class="form-label" for="kode_isi_2">Sub Standar</label>
+                                <select name="kode_isi_2" id="kode_isi_2" class="form-select"></select>
+                            </div>
+                            <div class="form-group">
+                                <label class="form-label" for="kode">Kode</label>
+                                <input type="text" class="form-control" id="kode" name="kode">
+                            </div>
+                            <div class="form-group">
+                                <label class="form-label" for="nama">Uraian</label>
+                                <input type="text" class="form-control" id="nama" name="nama">
                             </div>
                             <div class="form-group">
                                 <div class="row">
                                     <div class="col-6">
-                                        <label for="belanja-text-harga-ringgit" class="form-label">Harga real (RM)</label>
-                                        <input class="form-control" type="hidden" name="belanja-harga-ringgit" id="belanja-harga-ringgit" readonly>
-                                        <input class="form-control" type="text" name="belanja-text-harga-ringgit" id="belanja-text-harga-ringgit" required>
+                                        <label for="harga_ringgit" class="form-label">Harga (RM)</label>
+                                        <input class="form-control" type="text" step="any" name="harga_ringgit" id="harga_ringgit" readonly>
+                                        <input class="form-control" type="hidden" step="any" name="val_harga_ringgit" id="val_harga_ringgit" readonly>
                                     </div>
                                     <div class="col-6">
-                                        <label for="belanja-text-harga-rupiah" class="form-label">Harga real (Rp)</label>
-                                        <input class="form-control" type="hidden" name="belanja-harga-rupiah" id="belanja-harga-rupiah" readonly>
-                                        <input class="form-control" type="text" name="belanja-text-harga-rupiah" id="belanja-text-harga-rupiah" required>
+                                        <label for="harga_rupiah" class="form-label">harga (Rp)</label>
+                                        <input class="form-control" type="text" step="any" name="harga_rupiah" id="harga_rupiah" readonly>
+                                        <input class="form-control" type="hidden" step="any" name="val_harga_rupiah" id="val_harga_rupiah" readonly>
                                     </div>
                                 </div>
                             </div>
                             <div class="form-group">
-                                <label class="form-label" for="file">Photo Resit / Nota / Kwitansi</label>
-                                <input type="file" class="form-control" id="file" name="file" accept="image/png, image/gif, image/jpg, image/jpeg" placeholder="" required />
+                                <div class="row">
+                                    <div class="col-6">
+                                        <label for="jumlah_1" class="form-label">Jumlah</label>
+                                        <input class="form-control" type="number" name="jumlah_1" value="1" id="jumlah_1">
+                                    </div>
+                                    <div class="col-6">
+                                        <label for="satuan_1" class="form-label">Satuan</label>
+                                        <input class="form-control" type="text" name="satuan_1" id="satuan_1">
+                                    </div>
+                                </div>
                             </div>
                             <div class="form-group">
-                                <label for="belanja-tanggal" class="form-label">Tanggal</label>
-                                <input class="form-control" type="date" name="belanja-tanggal" id="belanja-tanggal" placeholder="Pilih tanggal" required>
+                                <div class="row">
+                                    <div class="col-6">
+                                        <label for="jumlah_2" class="form-label">Jumlah</label>
+                                        <input class="form-control" type="number" name="jumlah_2" value="1" id="jumlah_2">
+                                    </div>
+                                    <div class="col-6">
+                                        <label for="satuan_2" class="form-label">Satuan</label>
+                                        <input class="form-control" type="text" name="satuan_2" id="satuan_2">
+                                    </div>
+                                </div>
                             </div>
+                            <div class="form-group">
+                                <div class="row">
+                                    <div class="col-6">
+                                        <label for="jumlah_3" class="form-label">Jumlah</label>
+                                        <input class="form-control" type="number" name="jumlah_3" value="1" id="jumlah_3">
+                                    </div>
+                                    <div class="col-6">
+                                        <label for="satuan_3" class="form-label">Satuan</label>
+                                        <input class="form-control" type="text" name="satuan_3" id="satuan_3">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="row">
+                                    <div class="col-6">
+                                        <label for="jumlah_4" class="form-label">Jumlah</label>
+                                        <input class="form-control" type="number" name="jumlah_4" value="1" id="jumlah_4">
+                                    </div>
+                                    <div class="col-6">
+                                        <label for="satuan_4" class="form-label">Satuan</label>
+                                        <input class="form-control" type="text" name="satuan_4" id="satuan_4">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="row">
+                                    <div class="col-6">
+                                        <label for="total_harga_ringgit" class="form-label">Jumlah (RM)</label>
+                                        <input class="form-control" type="text" name="total_harga_ringgit" id="total_harga_ringgit" readonly>
+                                        <input class="form-control" type="hidden" name="val_total_harga_ringgit" id="val_total_harga_ringgit" readonly>
+                                    </div>
+                                    <div class="col-6">
+                                        <label for="total_harga_rupiah" class="form-label">Jumlah (Rp)</label>
+                                        <input class="form-control" type="text" name="total_harga_rupiah" id="total_harga_rupiah" readonly>
+                                        <input class="form-control" type="hidden" name="val_total_harga_rupiah" id="val_total_harga_rupiah" readonly>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <hr>
+                        <!-- keterangan -->
+                        <div class="form-group">
+                            <label for="keterangan"> Keterangan</label>
+                            <textarea class="form-control" id="keterangan" name="keterangan"></textarea>
                         </div>
                     </form>
                 </div>
@@ -170,71 +296,6 @@
         </div>
     </div>
 
-    <!-- Fullscreen Modal-->
-    <div class="modal fade" id="modalDetail" tabindex="-1" aria-labelledby="modalDetailLabel" aria-hidden="true">
-        <div class="modal-dialog modal-fullscreen-md-down">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h6 class="modal-title" id="modalDetailLabel">Detail Realisasi Belanja</h6>
-                    <button class="btn btn-close p-1 ms-auto" type="button" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <div class="modal-body">
-                    <div class="list-group pb-5 mb-4 pt-2" id="detail-list-body">
-                        <label>Uraian</label>
-                        <div id="detail-modal-uraian" class="mb-2">
-
-                        </div>
-
-                        <div class="form-group">
-                            <label for="detail-belanja-text-total-ringgit" class="form-label">Anggaran RAB (RM)</label>
-                            <input class="form-control" type="text" name="detail-belanja-text-total-ringgit" id="detail-belanja-text-total-ringgit" readonly>
-                        </div>
-
-                        <div class="form-group">
-                            <label for="detail-belanja-text-total-rupiah" class="form-label">Anggaran RAB (Rp)</label>
-                            <input class="form-control" type="text" name="detail-belanja-text-total-rupiah" id="detail-belanja-text-total-rupiah" readonly>
-                        </div>
-
-                        <div class="form-group">
-                            <label class="form-label" for="detail-belanja-uraian">Uraian</label>
-                            <textarea class="form-control" id="detail-belanja-uraian" name="detail-belanja-uraian" cols="3" rows="5" placeholder="Uraian" required readonly></textarea>
-                        </div>
-
-                        <div class="form-group">
-                            <label class="form-label" for="detail-belanja-keterangan">Keterangan</label>
-                            <textarea class="form-control" id="detail-belanja-keterangan" name="detail-belanja-keterangan" cols="3" rows="5" placeholder="Keterangan" required readonly></textarea>
-                        </div>
-
-                        <div class="form-group">
-                            <div class="row">
-                                <div class="col-6">
-                                    <label for="detail-belanja-text-harga-ringgit" class="form-label">Harga real (RM)</label>
-                                    <input class="form-control" type="hidden" name="detail-belanja-harga-ringgit" id="detail-belanja-harga-ringgit" readonly>
-                                    <input class="form-control" type="text" name="detail-belanja-text-harga-ringgit" id="detail-belanja-text-harga-ringgit" required readonly>
-                                </div>
-                                <div class="col-6">
-                                    <label for="detail-belanja-text-harga-rupiah" class="form-label">Harga real (Rp)</label>
-                                    <input class="form-control" type="hidden" name="detail-belanja-harga-rupiah" id="detail-belanja-harga-rupiah" readonly>
-                                    <input class="form-control" type="text" name="detail-belanja-text-harga-rupiah" id="detail-belanja-text-harga-rupiah" required readonly>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <label for="detail-belanja-tanggal" class="form-label">Tanggal</label>
-                            <input class="form-control" type="text" name="detail-belanja-tanggal" id="detail-belanja-tanggal" required readonly>
-                        </div>
-                        <div class="form-group">
-                            <label class="form-label" for="detail-file">Photo Resit / Nota / Kwitansi</label>
-                            <img src="..." class="img-fluid" alt="..." id="detail-file">
-                        </div>
-                    </div>
-                </div>
-                <div class="modal-footer">
-                    <button class="btn btn-sm btn-secondary" type="button" data-bs-dismiss="modal">Close</button>
-                </div>
-            </div>
-        </div>
-    </div>
     <!-- Footer Nav-->
     <?php $this->load->view('element-footer'); ?>
 

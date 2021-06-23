@@ -39,9 +39,10 @@ $(document).ready(function () {
         Loader();
         $.ajax({
             method: 'post',
-            url: base_url + 'realisasi/danasisa/ajax_data',
+            url: base_url + 'realisasi/danakurang/ajax_data',
             data: {
-                npsn: npsn
+                npsn: npsn,
+                id_cabang: id_cabang
             }
         }).done((data) => {
             const body = $("#list-body");
@@ -170,7 +171,7 @@ $(document).ready(function () {
         if (validasi) {
             $.ajax({
                 type: 'POST',
-                url: base_url + 'realisasi/danasisa/insertsisa',
+                url: base_url + 'realisasi/danakurang/insertkurang',
                 data: {
                     data: JSON.stringify({
                         'id_realisasi': id_realisasi_send,
@@ -182,33 +183,11 @@ $(document).ready(function () {
                         'keterangan': $('#keterangan').val(),
                         'kategori': $("#pilihan-tambahan").val(),
                         'id_cabang': $("#id_cabang").val(),
-                        'id_rab_to': $('#id_rab').val(),
-                        "non_rab": {
-                            "id_aktifitas": $("#id_aktifitas").val() || "",
-                            "id_aktifitas_sub": $("#id_aktifitas_sub").val() || "",
-                            "id_aktifitas_cabang": $("#id_aktifitas_cabang").val() || "",
-                            "kode_isi_1": $("#kode_isi_1").val() || 0,
-                            "kode_isi_2": $("#kode_isi_2").val() || 0,
-                            "kode_isi_3": $("#kode_isi_3").val() || 0,
-                            "kode": $("#kode").val() || "",
-                            "nama": $("#nama").val() || "",
-                            "jumlah_1": $("#jumlah_1").val() || "",
-                            "satuan_1": $("#satuan_1").val() || "",
-                            "jumlah_2": $("#jumlah_2").val() || "",
-                            "satuan_2": $("#satuan_2").val() || "",
-                            "jumlah_3": $("#jumlah_3").val() || "",
-                            "satuan_3": $("#satuan_3").val() || "",
-                            "jumlah_4": $("#jumlah_4").val() || "",
-                            "satuan_4": $("#satuan_4").val() || "",
-                            "harga_ringgit": $("#val_harga_ringgit").val() || "",
-                            "harga_rupiah": $("#val_harga_rupiah").val() || "",
-                            "total_harga_ringgit": $("#val_total_harga_ringgit").val() || "",
-                            "total_harga_rupiah": $("#val_total_harga_rupiah").val() || "",
-                            "prioritas": $("#prioritas").val() || "",
-                            "status": $("#status").val() || "",
-                            "keterangan": $("#keterangan").val() || "",
-                        }
+                        'id_rab_to': $('#id_rab').val()
                     }),
+                    non_rab: {
+
+                    }
                 },
                 success: function (data) {
                     if (data.result) {
