@@ -1,28 +1,47 @@
 <!-- Preloader-->
 <div class="preloader d-flex align-items-center justify-content-center" id="preloader">
-  <div class="spinner-grow text-primary" role="status">
+  <div class="spinner-grow text-warning" role="status">
     <div class="sr-only">Loading...</div>
   </div>
 </div>
 <div id="loader"></div>
 <!-- Internet Connection Status-->
 <div class="internet-connection-status" id="internetStatus"></div>
+
 <!-- Header Area-->
-<div class="header-area" id="headerArea">
+<!-- <div class="header-area" id="headerArea">
   <div class="container">
-    <!-- Paste your Header Content from here-->
-    <!-- # Header Five Layout-->
-    <!-- # Copy the code from here ...-->
-    <!-- Header Content-->
+
     <div class="header-content header-style-five position-relative d-flex align-items-center justify-content-between">
-      <!-- Logo Wrapper-->
       <div class="logo-wrapper"><a href="<?= base_url() ?>home"><img src="<?= base_url() ?>assets/img/core-img/logooo.png" alt=""></a></div>
-      <!-- Navbar Toggler-->
+
       <div class="navbar--toggler" id="affanNavbarToggler"><span class="d-block"></span><span class="d-block"></span><span class="d-block"></span></div>
     </div>
-    <!-- # Header Five Layout End-->
+  </div>
+</div> -->
+
+
+<div class="bg-warning shadow-sm  header-area" id="headerArea">
+  <div class="container">
+    <!-- # Header Two Layout-->
+    <!-- # Copy the code from here ...-->
+    <!-- Header Content-->
+    <div class="header-content header-style-two position-relative d-flex align-items-center justify-content-between">
+      <!-- Logo Wrapper-->
+      <div class="logo-wrapper"><a href="page-home.html"><img src="<?= base_url() ?>assets/img/core-img/logooo.png" alt=""></a></div>
+      <div class="navbar-content-wrapper d-flex align-items-center">
+        <!-- Search-->
+        <!-- Navbar Toggler-->
+        <div class="navbar--toggler" id="affanNavbarToggler">
+          <div class="span-wrap"><span class="d-block"></span><span class="d-block"></span><span class="d-block"></span></div>
+        </div>
+      </div>
+    </div>
+    <!-- # Header Two Layout End-->
   </div>
 </div>
+
+
 <!-- Sidenav Black Overlay-->
 <div class="sidenav-black-overlay"></div>
 <!-- Side Nav Wrapper-->
@@ -35,7 +54,7 @@
     </svg>
   </div>
   <!-- Sidenav Profile-->
-  <div class="sidenav-profile" style="background-color: #0036D3">
+  <div class="sidenav-profile bg-warning">
     <div class="sidenav-style1"></div>
     <!-- User Thumbnail-->
     <div class="user-profile"><img src="<?= base_url() ?>assets/img/kinabalu.jpg" alt=""></div>

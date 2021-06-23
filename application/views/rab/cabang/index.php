@@ -6,7 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="Affan - PWA Mobile HTML Template">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="theme-color" content="#0134d4">
+    <!-- <meta name="theme-color" content="#0134d4"> -->
+    <meta name="theme-color" content="#f1b10f">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black">
     <!-- Title-->
@@ -52,7 +53,7 @@
             <div class="standard-tab bg-white" style="border-radius: .5rem;">
                 <ul class="nav rounded-lg mb-2 p-2 shadow-sm" id="affanTabs1" role="tablist">
                     <li class="nav-item" role="presentation">
-                        <a href="<?= base_url() ?>rab" class="btn active">CLC</a>
+                        <a href="<?= base_url() ?>rab" class="btn bg-warning shadow-sm">CLC</a>
                     </li>
                     <li class="nav-item" role="presentation">
                         <a href="<?= base_url() ?>rab/preview" class="btn">Preview</a>

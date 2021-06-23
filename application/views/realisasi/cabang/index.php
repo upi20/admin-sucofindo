@@ -6,7 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="Affan - PWA Mobile HTML Template">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="theme-color" content="#0134d4">
+    <!-- <meta name="theme-color" content="#0134d4"> -->
+    <meta name="theme-color" content="#f1b10f">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black">
     <!-- Title-->
@@ -61,7 +62,7 @@
             <div class="standard-tab bg-white mb-2" id="tab-main" style="border-radius: .5rem;">
                 <ul class="nav rounded-lg mb-2 p-2 shadow-sm" id="affanTabs1" role="tablist">
                     <li class="nav-item" role="presentation">
-                        <a href="<?= base_url() ?>realisasi" class="btn  active">Dana RAB</a>
+                        <a href="<?= base_url() ?>realisasi" class="btn bg-warning shadow-sm">Dana RAB</a>
                     </li>
                     <li class="nav-item" role="presentation">
                         <a href="<?= base_url() ?>realisasi/danasisa" class="btn">Dana Sisa</a>
@@ -80,7 +81,7 @@
             </div>
             <!-- List Checkbox -->
             <form action="" id="form" method="POST">
-                <div class="list-group pt-2" id="list-body">
+                <div class="list-group py-2 pb-5 mb-3" id="list-body">
                     <label class="list-group-item d-flex" for="listCheckbox24">
                     </label>
                 </div>
