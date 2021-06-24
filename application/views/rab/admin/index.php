@@ -48,6 +48,7 @@
 <body>
     <?php $this->load->view('element-header'); ?>
 
+<<<<<<< HEAD:application/views/rab/admin/index.php
     <div class="page-content-wrapper py-3 elements-page">
         <div class="container">
             <div class="elements-heading mb-3">
@@ -64,6 +65,35 @@
                     <a class="page--item" href="<?= base_url("rab") ?>/preview">Preview<i class="fa fa-angle-right"></i></a>
                 </div>
             </div>
+=======
+    <div class="page-content-wrapper py-3">
+        <div class="container" style="margin-top: -5px;">
+            <nav aria-label="breadcrumb">
+                <ol class="breadcrumb mb-0 py-2 px-3 rounded" id="list-breadcrumb">
+                    <li class="breadcrumb-item"><a href="<?= base_url() ?>">Home</a></li>
+                    <li class="breadcrumb-item"><a href="<?= base_url('company') ?>">Company</a></li>
+                    <li class="breadcrumb-item active" aria-current="page">Activity</li>
+                </ol>
+            </nav>
+        </div>
+        <div class="container mt-3">
+            <h6 class="ps-1">Activity Area Tambang</h6>
+            <ul class="ps-0 chat-user-list">
+                <?php foreach ($activity as $a) : ?>
+                    <li class="p-3 chat-unread">
+                        <a href="<?= base_url('company/activity/detail/') . $a['id'] ?>" class="d-flex w-100" id="activity-area-tambang">
+                            <div class="chat-user-info">
+                                <h6 class="text-truncate mb-0"><?= $a['title'] ?> <?= $a['wmps'] ?></h6>
+                                <div class="last-chat">
+                                    <!-- <p class="mb-0 text-truncate" style="color: black">2 Januari 2021 (3 jam)<span class="badge rounded-pill bg-primary ms-2">Proses</span></p> -->
+                                    <p class="mb-0 text-truncate" style="color: black"><?= $a['updated_at'] ?><span class="badge rounded-pill bg-primary ms-2"><?= $a['status'] ?></span></p>
+                                </div>
+                            </div>
+                        </a>
+                    </li>
+                <?php endforeach; ?>
+            </ul>
+>>>>>>> c2f41af47cd350855343c08018a10be93f1a17d5:application/views/company/activity.php
         </div>
     </div>
 
