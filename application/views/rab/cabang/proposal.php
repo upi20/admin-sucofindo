@@ -140,6 +140,7 @@
     <script>
         const my_acctive_menu = "rab";
         const base_url = "<?= base_url() ?>";
+        const id_cabang = "<?= $id_cabang ?>";
     </script>
     <script src="<?= base_url() ?>assets/js/default/menu-active.js"></script>
     <script src="<?= base_url() ?>assets/page/rab/cabang/index.js"></script>

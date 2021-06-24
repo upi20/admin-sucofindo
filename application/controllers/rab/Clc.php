@@ -60,7 +60,7 @@ class Clc extends Render_Controller
 
     public function getListDataRabs()
     {
-        $id_cabang = $this->id_cabang;
+        $id_cabang = $this->input->post("id");
         $result = $this->clc->getListDataRabs($id_cabang);
         $this->output_json($result);
     }

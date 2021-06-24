@@ -39,6 +39,11 @@
               <i class="fa fa-calendar fa-2x" sty aria-hidden="true"></i>
               <span>Hutang</span></a>
           </li>
+          <li data-name="rekap">
+            <a href="<?= base_url() ?>rekap">
+              <i class="fa fa-file-text-o fa-2x" sty aria-hidden="true"></i>
+              <span>Rekap</span></a>
+          </li>
         <?php endif ?>
         <li data-name="setting">
           <a href="<?= base_url() ?>setting/profile">

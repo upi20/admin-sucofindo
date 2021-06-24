@@ -62,13 +62,13 @@
             <div class="standard-tab bg-white mb-2" id="tab-main" style="border-radius: .5rem;">
                 <ul class="nav rounded-lg mb-2 p-2 shadow-sm" id="affanTabs1" role="tablist">
                     <li class="nav-item" role="presentation">
-                        <a href="<?= base_url() ?>realisasi" class="btn bg-warning shadow-sm">Dana RAB</a>
+                        <a href="<?= base_url() ?>realisasi" class="btn bg-warning shadow-sm  loader-class">Dana RAB</a>
                     </li>
                     <li class="nav-item" role="presentation">
-                        <a href="<?= base_url() ?>realisasi/danasisa" class="btn">Dana Sisa</a>
+                        <a href="<?= base_url() ?>realisasi/danasisa" class="btn  loader-class">Dana Sisa</a>
                     </li>
                     <li class="nav-item" role="presentation">
-                        <a href="<?= base_url() ?>realisasi/danakurang" class="btn">Dana Kurang</a>
+                        <a href="<?= base_url() ?>realisasi/danakurang" class="btn  loader-class">Dana Kurang</a>
                     </li>
                 </ul>
             </div>

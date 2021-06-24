@@ -93,6 +93,11 @@
           <i class="fa fa-calendar" aria-hidden="true"></i>
           &nbsp; Hutang</a>
       </li>
+      <li>
+        <a href="<?= base_url() ?>rekap">
+          <i class="fa fa-file-text-o" aria-hidden="true"></i>
+          &nbsp; Hutang</a>
+      </li>
     <?php endif ?>
     <?php if ($this->session->userdata("data")['level'] == "Super Admin") : ?>
       <li>

@@ -53,18 +53,18 @@
             <div class="standard-tab bg-white" style="border-radius: .5rem;">
                 <ul class="nav rounded-lg mb-2 p-2 shadow-sm" id="affanTabs1" role="tablist">
                     <li class="nav-item" role="presentation">
-                        <a href="<?= base_url() ?>rab" class="btn bg-warning shadow-sm">CLC</a>
+                        <a href="<?= base_url() ?>rab" class="btn bg-warning shadow-sm  loader-class">CLC</a>
                     </li>
                     <li class="nav-item" role="presentation">
-                        <a href="<?= base_url() ?>rab/preview" class="btn">Preview</a>
+                        <a href="<?= base_url() ?>rab/preview" class="btn  loader-class">Preview</a>
                     </li>
                     <li class="nav-item" role="presentation">
-                        <a href="<?= base_url() ?>rab/proposal" class="btn">Proposal</a>
+                        <a href="<?= base_url() ?>rab/proposal" class="btn  loader-class">Proposal</a>
                     </li>
                 </ul>
             </div>
             <?php if ($status == 0) : ?>
-                <a class="btn btn-creative btn-info my-2" href="<?= base_url() ?>rab/clc/tambah"><i class="fa fa-plus" aria-hidden="true"></i> Tambah</a>
+                <a class="btn  btn-creative btn-info my-2  loader-class" href="<?= base_url() ?>rab/clc/tambah"><i class="fa fa-plus" aria-hidden="true"></i> Tambah</a>
                 <button class="btn btn-creative btn-success my-2" data-toggle="modal" data-target="#importModal" onclick="$('#importModal').modal('toggle')"><i class="fa fa-download" aria-hidden="true"></i> Import Excel </button>
             <?php endif; ?>
             <a class="btn btn-creative btn-secondary my-2" href="<?= base_url() ?>rab/clc/export_excel?cabang=<?= $id_cabang ?>"><i class="fa fa-copy" aria-hidden="true"></i> Eksport Excel </a>

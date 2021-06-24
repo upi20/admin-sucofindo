@@ -1,6 +1,9 @@
 const my_footer = $("#footer-menu");
 my_footer.find("li").each(function () {
     const menu = $(this);
+    this.addEventListener("click", function () {
+        Loader();
+    });
     if (menu.data('name') == my_acctive_menu) {
         menu.addClass("active");
         $(this).find("a>i").addClass("text-warning");
@@ -15,11 +18,22 @@ my_footer.find("li").each(function () {
 function Loader(isLoading = true) {
     if (isLoading) {
         $("#loader").html(`<div class="preloader d-flex align-items-center justify-content-center" id="preloader">
-  <div class="spinner-grow text-warning" role="status">
-    <div class="sr-only">Loading...</div>
-  </div>
-</div>`)
+        <div class="spinner-grow text-warning" role="status">
+        <div class="sr-only">Loading...</div>
+        </div>
+        </div>`)
     } else {
         $("#loader").empty();
     }
+    return "loading..";
 }
+
+// document.querySelectorAll(".loader-class").forEach(function () {
+//     this.addEventListener("click", function () {
+//         Loader();
+//     });
+// })
+
+window.addEventListener('popstate', function (event) {
+    Loader();
+});

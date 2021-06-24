@@ -10,11 +10,16 @@ class DanaKurangModel extends Render_Model
             ->get_where('rabs a', ['a.id_cabang' => $id_cabang])
             ->row_array();
 
-        if ($cek['status'] == 0 or $cek['status'] == 1 or $cek['status'] == 3) {
-            $status = 2;
+        if (isset($cek['status'])) {
+            if ($cek['status'] == 0 or $cek['status'] == 1 or $cek['status'] == 3) {
+                $status = 2;
+            } else {
+                $status = $cek['status'];
+            }
         } else {
-            $status = $cek['status'];
+            $status = 0;
         }
+
         $this->db->select(' * ,z.id_cabang as asu, b.kode as npsn, b.nama as nama_cabang, a.nama as nama_aktifitas, a.status as statuss, a.kode as kodes,z.id as id_realisasi, a.id, z.sisa_ringgit, z.sisa_rupiah');
         $this->db->from(' rabs  a');
         $this->db->join(' realisasis z ', ' a.id = z.id_rab ', ' left ');

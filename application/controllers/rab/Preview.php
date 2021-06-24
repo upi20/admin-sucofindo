@@ -28,7 +28,7 @@ class Preview extends Render_Controller
                     'status' => null,
                     'id_cabang' => $getCabang['id_cabang'],
                     'nama' => $getCabang['nama'],
-                    'kode' => ''
+                    'kode' => $getCabang['kode']
                 ];
             }
 

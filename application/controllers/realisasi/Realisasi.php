@@ -23,13 +23,15 @@ class Realisasi extends Render_Controller
                 ->get_where('rabs a', ['b.user_id' => $this->session->userdata('data')['id']])
                 ->row_array();
             if ($get_status == null) {
+                $this->load->model("rab/ClcModel", 'clc');
                 $getCabang = $this->clc->getIdCabang();
+
                 $get_status = [
                     'fungsi' => '0',
                     'status' => null,
                     'id_cabang' => $getCabang['id_cabang'],
                     'nama' => $getCabang['nama'],
-                    'kode' => ''
+                    'kode' => $getCabang['kode']
                 ];
             }
 

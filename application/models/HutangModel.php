@@ -3,11 +3,11 @@ defined('BASEPATH') or exit('No direct script access allowed');
 
 class HutangModel extends Render_Model
 {
-    public function getAllData($show = null, $start = null, $cari = null, $status = null)
+    public function getAllData($show = null, $start = null, $cari = null, $status = null, $id_cabang = null)
     {
         $exe = $this->db->select('*')
             ->from('hutang a')
-            ->where("(a.nama LIKE '%" . $cari . "%' or a.no_hp LIKE '%" . $cari . "%' or a.keterangan LIKE '%" . $cari . "%' or a.jumlah LIKE '%" . $cari . "%' or a.dibayar LIKE '%" . $cari . "%' or a.sisa LIKE '%" . $cari . "%' or a.status LIKE '%" . $cari . "%' or a.tanggal LIKE '%" . $cari . "%' ) ");
+            ->where("(id_cabang = '$id_cabang') and (a.nama LIKE '%" . $cari . "%' or a.no_hp LIKE '%" . $cari . "%' or a.keterangan LIKE '%" . $cari . "%' or a.jumlah LIKE '%" . $cari . "%' or a.dibayar LIKE '%" . $cari . "%' or a.sisa LIKE '%" . $cari . "%' or a.status LIKE '%" . $cari . "%' or a.tanggal LIKE '%" . $cari . "%' ) ");
         if ($show == null && $start == null) {
             $return = $exe->get();
         } else {

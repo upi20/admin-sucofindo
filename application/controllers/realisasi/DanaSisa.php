@@ -22,7 +22,7 @@ class DanaSisa extends Render_Controller
 
         $get_status                = $this->db->get_where('rabs', ['id_cabang' => $id_cabang])->row_array();
         $data['kode']        = $this->realisasi->getAllData(null, null, null, $npsn)->result_array();
-        $data['status']    = $get_status['status'];
+        $data['status']    = isset($get_status['status']) ? $get_status['status'] : 0;
         $data['npsn']      = $npsn;
         $data['cabang']      = str_replace('%20', ' ', $cabang);
         $data['total']    = $this->realisasi->getTotalHarga($npsn);

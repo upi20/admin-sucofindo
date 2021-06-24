@@ -254,14 +254,14 @@ class ClcModel extends Render_Model
     public function getIdCabang()
     {
         $id_user =  $this->session->userdata('data')['id'];
-        $result = $this->db->select("id as id_cabang, nama")->from("cabangs")->where(['user_id' => $id_user])->get()->row_array();
-        return isset($result['id_cabang']) ? $result : ['id_cabang' => 0, 'nama' => ''];
+        $result = $this->db->select("*, id as id_cabang")->from("cabangs")->where(['user_id' => $id_user])->get()->row_array();
+        return isset($result['id']) ? $result : ['id_cabang' => 0, 'nama' => '', 'kode' => ''];
     }
 
     public function getListDataRabs($id_cabang = null)
     {
         $where = [];
-        if ($where) {
+        if ($id_cabang) {
             $where = [
                 "a.id_cabang" => $id_cabang
             ];

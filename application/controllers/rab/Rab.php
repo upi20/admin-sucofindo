@@ -10,7 +10,7 @@ class Rab extends CI_Controller
     }
     public function index()
     {
-
+        $this->load->model("rab/ClcModel", 'clc');
         if ($this->session->userdata("data")['level'] == "Super Admin") {
             $this->load->view("rab/admin/index");
         } else if ($this->session->userdata("data")['level'] == "Admin Sekolah") {
@@ -25,7 +25,7 @@ class Rab extends CI_Controller
                     'status' => null,
                     'id_cabang' => $getCabang['id_cabang'],
                     'nama' => $getCabang['nama'],
-                    'kode' => ''
+                    'kode' => $getCabang['kode']
                 ];
             }
 

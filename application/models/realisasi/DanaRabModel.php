@@ -21,11 +21,16 @@ class DanaRabModel extends Render_Model
     private function getAllDataDetailAction($npsn)
     {
         $cek = $this->db->select('a.status')->join('cabangs b', 'a.id_cabang = b.id')->limit(1)->get_where('rabs a', ['b.kode' => $npsn])->row_array();
-        if ($cek['status'] == 0 or $cek['status'] == 1 or $cek['status'] == 3) {
-            $status = 2;
+        if (isset($cek['status'])) {
+            if ($cek['status'] == 0 or $cek['status'] == 1 or $cek['status'] == 3) {
+                $status = 2;
+            } else {
+                $status = $cek['status'];
+            }
         } else {
-            $status = $cek['status'];
+            $status = 0;
         }
+
         return $this->db->select(' * , b.kode as npsn, b.nama as nama_cabang, a.nama as nama_aktifitas, a.status as statuss, a.kode as kodes,z.id as id_realisasi, a.id')
             ->from(' rabs  a')
             ->join(' realisasis z ', ' a.id = z.id_rab ', ' left ')

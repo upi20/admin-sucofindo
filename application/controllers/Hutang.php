@@ -26,7 +26,7 @@ class Hutang extends Render_Controller
         } else {
             $_cari = null;
         }
-        $data     = $this->hutang->getAllData($length, $start, $_cari, $status)->result_array();
+        $data     = $this->hutang->getAllData($length, $start, $_cari, $status, $this->id_cabang)->result_array();
         $count     = count($data);
 
         array($cari);

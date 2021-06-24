@@ -53,22 +53,22 @@
             <div class="standard-tab bg-white" style="border-radius: .5rem;">
                 <ul class="nav rounded-lg mb-2 p-2 shadow-sm" id="affanTabs1" role="tablist">
                     <li class="nav-item" role="presentation">
-                        <a href="<?= base_url() ?>rab" class="btn ">CLC</a>
+                        <a href="<?= base_url() ?>rab" class="btn   loader-class">CLC</a>
                     </li>
                     <li class="nav-item" role="presentation">
-                        <a href="<?= base_url() ?>rab/preview" class="btn bg-warning shadow-sm">Preview</a>
+                        <a href="<?= base_url() ?>rab/preview" class="btn bg-warning shadow-sm   loader-class">Preview</a>
                     </li>
                     <li class="nav-item" role="presentation">
-                        <a href="<?= base_url() ?>rab/proposal" class="btn">Proposal</a>
+                        <a href="<?= base_url() ?>rab/proposal" class="btn   loader-class">Proposal</a>
                     </li>
                 </ul>
             </div>
             <?php if ($status == 0) : ?>
-                <a href="<?= base_url() ?>rab/preview/tindakan/<?= $npsn ?>/1" class="btn btn-primary btn-sm my-2" onclick="return confirm('Apakah anda yakin?');">
+                <a href="<?= base_url() ?>rab/preview/tindakan/<?= $npsn ?>/1" class="btn btn-primary btn-sm my-2  loader-class" onclick="return confirm('Apakah anda yakin?');">
                     <i class="fa fa-check"></i> Ajukan ?
                 </a>
             <?php elseif ($status == 1) : ?>
-                <a href="<?= base_url() ?>rab/preview/tindakan/<?= $npsn ?>/0" class="btn btn-warning btn-sm my-2" onclick="return confirm('Apakah anda yakin?');">
+                <a href="<?= base_url() ?>rab/preview/tindakan/<?= $npsn ?>/0" class="btn btn-warning btn-sm my-2  loader-class" onclick="return confirm('Apakah anda yakin?');">
                     <i class="fa fa-arrow-left"></i> Batalkan Ajuan
                 </a>
                 <a href="#" class="btn btn-primary btn-sm my-2">

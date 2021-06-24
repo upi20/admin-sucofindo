@@ -5,7 +5,9 @@ $(document).ready(function () {
         $.ajax({
             method: 'post',
             url: base_url + 'rab/clc/getlistdatarabs',
-            data: null
+            data: {
+                id: id_cabang
+            }
         }).done((data) => {
             const body = $("#list-body");
             body.empty();
